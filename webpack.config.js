@@ -91,7 +91,7 @@ module.exports = {
     port: 8081,
     open: true,
     compress: true,
-    openPage: '/page/index/index.html',
+    openPage: '/page/wx_list/index.html',
     proxy: {
         '/user':
           {
@@ -104,6 +104,10 @@ module.exports = {
           changeOrigin:true
         },
       '/memos': {
+        target:"http://localhost:8080",
+        changeOrigin:true
+      },
+      '/list': {
         target:"http://localhost:8080",
         changeOrigin:true
       },
