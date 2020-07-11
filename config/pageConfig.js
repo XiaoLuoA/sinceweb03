@@ -16,5 +16,25 @@ module.exports = [
   {
     name: 'user',
     title: 'since的user页面',
+  },
+  {
+    name: 'wx_user',
+    title: '个人中心',
+  },
+  {
+    name: 'wx_list',
+    title: '我的订单',
+  },
+  {
+    name: 'wx_index',
+    title: '森思书屋',
+  },
+  {
+    name: 'wx_memos',
+    title: '留言板',
+  },
+  {
+    name: 'wx_buy',
+    title: '购买',
   }
 ];
