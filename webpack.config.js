@@ -4,8 +4,10 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
-//
+// 配置项
 const pages = require('./config/pageConfig');
+const devProxy = require('./config/proxyConfig');
+
 const outputPath = path.resolve(__dirname, 'build');
 
 
@@ -92,22 +94,7 @@ module.exports = {
     open: true,
     compress: true,
     openPage: '/page/index/index.html',
-    proxy: {
-        '/user':
-          {
-            target:"http://localhost:8080",
-            changeOrigin:true
-          },
-      '/book':
-        {
-          target:"http://localhost:8080",
-          changeOrigin:true
-        },
-      '/memos': {
-        target:"http://localhost:8080",
-        changeOrigin:true
-      },
-    }
+    proxy: devProxy,
   }
 
 };
