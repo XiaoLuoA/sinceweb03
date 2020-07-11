@@ -1,0 +1,123 @@
+
+<html>
+  <head>
+  <title><%= htmlWebpackPlugin.options.title %></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <LINK REL="SHORTCUT ICON" HREF="Since.ico">
+    <link rel="stylesheet" href="../../../public/css/mui.min.css">
+    <link rel="stylesheet" type="text/css" href="../../../public/css/icons-extra.css" />
+  </head>
+  <body>
+     <div id="slider" class="mui-slider" style="height: 55vw;" >
+            <div class="mui-slider-group mui-slider-loop">
+                <!-- 额外增加的一个节点(循环轮播：第一个节点是最后一张轮播) -->
+                <div class="mui-slider-item mui-slider-item-duplicate">
+                    <a href="#">
+                        <img src="http://sincelibrary.oss-cn-shanghai.aliyuncs.com/xhwl/xhwl_4.jpg">
+                    </a>
+                </div>
+                <!-- 第一张 -->
+                <div class="mui-slider-item">
+                    <a href="#">
+                        <img src="http://sincelibrary.oss-cn-shanghai.aliyuncs.com/xhwl/xhwl_1.jpg">
+                    </a>
+                </div>
+                <!-- 第二张 -->
+                <div class="mui-slider-item">
+                    <a href="#">
+                        <img src="http://sincelibrary.oss-cn-shanghai.aliyuncs.com/xhwl/xhwl_2.jpg">
+                    </a>
+                </div>
+                <!-- 第三张 -->
+                <div class="mui-slider-item">
+                    <a href="#">
+                        <img src="http://sincelibrary.oss-cn-shanghai.aliyuncs.com/xhwl/xhwl_3.jpg">
+                    </a>
+                </div>
+                <!-- 第四张 -->
+                <div class="mui-slider-item">
+                    <a href="#">
+                        <img src="http://sincelibrary.oss-cn-shanghai.aliyuncs.com/xhwl/xhwl_4.jpg">
+                    </a>
+                </div>
+                <!-- 额外增加的一个节点(循环轮播：最后一个节点是第一张轮播) -->
+                <div class="mui-slider-item mui-slider-item-duplicate">
+                    <a href="#">
+                        <img src="https://sincelibrary.oss-cn-shanghai.aliyuncs.com/xhwl/IMG_201906094455.jpg">
+                    </a>
+                </div>
+            </div>
+            <div class="mui-slider-indicator">
+                <div class="mui-indicator mui-active"></div>
+                <div class="mui-indicator"></div>
+                <div class="mui-indicator"></div>
+                <div class="mui-indicator"></div>
+            </div>
+        </div>
+      <form action="bookStore" method="post" style="margin-bottom:-15px;">
+        <div>
+               <input id="i2" type="search" name="sosowords" class="mui-input-search" style="background:#eee" placeholder="搜索图书点这里哦!">
+        </div>
+      </form>
+       <div id="book"> 
+        <div class="mui-col-xs-6 mui-pull-left">
+            <div class="mui-card " >
+                <div class="mui-card-header mui-card-media" style="height:45vw;width:45vw;background-image:url(http://sincelibrary.oss-cn-shanghai.aliyuncs.com/xhwl/xhwl_2.jpg)">
+                </div>
+                <div class="mui-card-content" >
+                        <p class="mui-ellipsis" style="color:#333; margin:8px;font-size:11px;"><b>计算机组成原理</b><br>七成新 | 开学送</p>
+                        <p style="color:red; margin:6px;font-size:16px;">
+                        ￥99 
+                        <small style="color:#999; font-size:6px;"> 9人购买</small>
+                        
+                        <input class="mui-pull-right" type="submit" value="" style="background-repeat:no-repeat ;background-size:100% 100%;background-image:url(../../img/购买.png);background-color:rgba(0,0,0,0);border:0px solid red;width:5vw;height:5vw; "/>
+                                 </p>
+                </div>
+            </div>
+        </div>
+          <div class="mui-col-xs-6 mui-pull-left">
+                <div class="mui-card " >
+                    <div class="mui-card-header mui-card-media" style="height:45vw;width:45vw;background-image:url(http://sincelibrary.oss-cn-shanghai.aliyuncs.com/xhwl/xhwl_2.jpg)">
+                    </div>
+                    <div class="mui-card-content" >
+                            <p class="mui-ellipsis" style="color:#333; margin:8px;font-size:11px;"><b>计算机组成原理</b> <br>七成新 | 开学送</p>
+                            <p style="color:red; margin:6px;font-size:16px;">
+                            ￥99 
+                            <small style="color:#999; font-size:6px;"> 9人购买</small>
+                            
+                            <input class="mui-pull-right" type="submit" value="" style="background-repeat:no-repeat ;background-size:100% 100%;background-image:url(../../img/购买.png);background-color:rgba(0,0,0,0);border:0px solid red;width:5vw;height:5vw; "/>
+                                     </p>
+                    </div>
+                </div>
+            </div>
+       </div>
+
+
+
+
+
+        <div class="mui-pull-left" style="width:100vw; " ><br><br><br></div>
+          <div style="position: fixed;width: 100%; bottom:0;z-index:3;">
+                        <ul class="mui-table-view mui-grid-view" >
+                            <li class="mui-table-view-cell  mui-col-xs-4"><a href="bookStore"><span class="mui-icon mui-icon-home" style="line-height: 25px; color:blue;"></span>
+                                    <div style="font-size:9px;line-height: 10px;color:blue">首页</div></a>
+                            </li>
+                           
+                            <li class="mui-table-view-cell  mui-col-xs-4"><a href="since2.0/_view/page/memos/first.jsp">
+                            <span class="mui-icon mui-icon-compose" style="line-height: 25px;"></span>
+                                    <div style="font-size:9px;line-height: 10px;">留言板</div></a>
+                            </li>
+                            <li class="mui-table-view-cell  mui-col-xs-4">
+                            <a href="since2.0/_view/page/myInfor/mine.jsp">
+                            <span class="mui-icon mui-icon-person" style="line-height: 25px;"></span>
+                                    <div style="font-size:9px;line-height: 10px;">个人中心</div></a>
+                            </li>
+                      </ul>
+            </div>
+          </div>
+        </div>
+        
+  </body>
+  <script src="../../../public/js/mui.min.js"></script>
+</html>
+
