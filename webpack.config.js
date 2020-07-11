@@ -4,8 +4,21 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
-//
+// node命令环境变量
+const NODE_ENV = process.env.NODE_ENV;
+// 配置项
 const pages = require('./config/pageConfig');
+let devProxy;
+const proxyConfigPath = './config/proxyConfig';
+try {
+  devProxy = (NODE_ENV === 'dev_proxy')
+  ? require(proxyConfigPath)
+  : {};
+} catch (e) {
+  console.warn(`代理配置项读取失败， 请检查${proxyConfigPath}模块是否存在`);
+  throw e;
+}
+
 const outputPath = path.resolve(__dirname, 'build');
 
 
@@ -55,13 +68,22 @@ module.exports = {
           fallback: 'style-loader',
           use: 'css-loader'
         }),
-      },
-      {
+      }, {
         test: /\.less$/,
         use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
           use: ['css-loader', 'less-loader'],
         }),
+      }, {
+        test: /\.js$/,
+        enforce: 'pre',
+        exclude: /node_modules/,
+        include: path.join(__dirname, 'src'), // 要检查的目录
+        loader: 'eslint-loader',
+        options: {
+          // 稍稍提高一些打包速度
+          // cache: true,
+        }
       },
     ],
   },
@@ -92,22 +114,8 @@ module.exports = {
     open: true,
     compress: true,
     openPage: '/page/index/index.html',
-    proxy: {
-        '/user':
-          {
-            target:"http://localhost:8080",
-            changeOrigin:true
-          },
-      '/book':
-        {
-          target:"http://localhost:8080",
-          changeOrigin:true
-        },
-      '/memos': {
-        target:"http://localhost:8080",
-        changeOrigin:true
-      },
-    }
+    proxy: devProxy,
+    disableHostCheck: true,
   }
 
 };
