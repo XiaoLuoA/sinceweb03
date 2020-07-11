@@ -5,7 +5,7 @@ import 'antd/dist/antd.css';
 import './index.less';
 import umbrella from 'umbrella-storage';
 import message from 'antd/lib/message';
-import { getUser, doLogin, getIndex } from '~/ajax';
+import { getUser, doLogin, getIndex } from '~/ajax';0
 import { debug1 } from '~/util/debug';
 debug1('hello');
 umbrella.setLocalStorage('app', { appId: '123' });
