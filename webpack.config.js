@@ -55,13 +55,22 @@ module.exports = {
           fallback: 'style-loader',
           use: 'css-loader'
         }),
-      },
-      {
+      }, {
         test: /\.less$/,
         use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
           use: ['css-loader', 'less-loader'],
         }),
+      }, {
+        test: /\.js$/,
+        enforce: 'pre',
+        exclude: /node_modules/,
+        include: path.join(__dirname, 'src'), // 要检查的目录
+        loader: 'eslint-loader',
+        options: {
+          // 稍稍提高一些打包速度
+          // cache: true,
+        }
       },
     ],
   },
