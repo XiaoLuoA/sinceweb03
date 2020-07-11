@@ -9,7 +9,10 @@ getUser('123').then((data) => {
         showData(data);
         console.log(data);
         return ;
-    }else {
+    }else if(data.code === codes.USER_NOT_FOUND){
+        console.log("没有查到这个用户");
+    }
+    else {
         console.log("error", data);
     }
 });

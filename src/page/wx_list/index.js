@@ -13,8 +13,12 @@ getWXList("gdsflkghsdfoihgiosdfgdfgnghkm").then((data) => {
         showUserList(data);
         console.log(data);
         return ;
-    }else {
+    }else if(data.code === codes.LIST_OPENID_NOT_FOUND){
+        console.log("查找为空");
+    }
+    else {
         console.log("error", data);
+        
     }
 });
 
