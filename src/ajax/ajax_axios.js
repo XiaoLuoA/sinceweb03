@@ -71,6 +71,6 @@ export const get = (url, params, errMsg) => {
   return ajax('get', url, params, errMsg)
 };
 
-export const post = (url, data ,errMsg) => {
+export const post = (url, data, errMsg) => {
   return ajax('post', url, data, errMsg)
 };

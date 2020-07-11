@@ -1,8 +1,8 @@
-import './index.less'
-import codes from "~/config/codeConfig"
-import {getUser} from "~/ajax/user";
+import './index.less';
+import codes from '~/config/codeConfig';
+import {getUser} from '~/ajax/user';
 import message from 'antd/lib/message';
-import {getBooks} from "~/ajax/book";
+import {getBooks} from '~/ajax/book';
 
 getUser('123').then((data) => {
     if (data.code === codes.success){
@@ -10,7 +10,7 @@ getUser('123').then((data) => {
         console.log(data);
         return ;
     }else {
-        console.log("error", data);
+        console.log('error', data);
     }
 });
 
@@ -21,7 +21,7 @@ getBooks().then((data) => {
     console.log(data);
     return ;
   }else {
-    console.log("error", data);
+    console.log('error', data);
   }
 });
 
