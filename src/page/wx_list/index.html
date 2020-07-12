@@ -1,82 +1,42 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="UTF-8">
-		<title>我的订单</title>
-			<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
-	<meta name="apple-mobile-web-app-capable" content="yes">
-	<meta name="apple-mobile-web-app-status-bar-style" content="black">
-		   <LINK REL="SHORTCUT ICON" HREF="Since.ico">
-		<!-- <link rel="stylesheet" href="../../CSS/loadingOverLay.css" /> -->
-		<link rel="stylesheet" href="../../../public/css/mui.min.css">
-		<link rel="stylesheet" type="text/css" href="../../../public/css/icons-extra.css" />
-	</head>
-	<style>
-		.mui-control-content {background-color: white;min-height: 500px;}
-		.mui-control-content .mui-loading {margin-top: 50px;}
-		.imgBorder{border-radius: 0;min-height: 118px;min-width: 96px;}
-		.starSize{font-size: 12px;color: rgb(255,150,2);}
-	</style>
-	<body>
-		<div class="page-moments">
-		<!--我的订单页顶部选项-->
+<head>
+	<meta charset="UTF-8">
+	<title>我的订单</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+	<link rel="stylesheet" href="../../../public/css/mui.min.css">
+	<link rel="stylesheet" type="text/css" href="../../../public/css/icons-extra.css" />
+</head>
+<body>
+	<div class="page-moments">
 		<header class="mui-bar mui-bar-nav">
 			<h1 class="mui-title">我的订单</h1>
 		</header>
-		
-	
-	<div class="mui-content">
-	<div id="muiDoctorCard">
-			
-	</div>
-</div>
-<br><br><br>
-	    <div style="position: fixed;width: 100%; bottom:0;z-index:3;background:pink;">
-			            <ul class="mui-table-view mui-grid-view" >
-		                    <li class="mui-table-view-cell  mui-col-xs-4"><a href="../../../../bookStore"><span class="mui-icon mui-icon-home" style="line-height: 25px;"></span>
-		                            <div style="font-size:9px;line-height: 10px;">首页</div></a>
-		                    </li>
-		                    <li class="mui-table-view-cell  mui-col-xs-4"><a href="../../../../since2.0/_view/page/memos/first.jsp">
-		                    <span class="mui-icon mui-icon-compose" style="line-height: 25px;"></span>
-		                            <div style="font-size:9px;line-height: 10px;">留言板</div></a>
-		                    </li>
-		                    <li class="mui-table-view-cell  mui-col-xs-4">
-		                    <a href="../../../../since2.0/_view/page/myInfor/mine.jsp">
-		                    <span class="mui-icon mui-icon-person" style="line-height: 25px;"></span>
-		                            <div style="font-size:9px;line-height: 10px;">个人中心</div></a>
-		                    </li>
-		              </ul>
+		<div class="mui-content">
+			<div id="muiDoctorCard">
 			</div>
-		<script src="../../../public/js/jquery-3.2.1.min.js"></script>	
+		</div>
+		<br><br><br>
+		<div style="position: fixed;width: 100%; bottom:0;z-index:3;background:pink;">
+			<ul class="mui-table-view mui-grid-view">
+				<li class="mui-table-view-cell  mui-col-xs-4"><a href="../../../../bookStore"><span
+							class="mui-icon mui-icon-home" style="line-height: 25px;"></span>
+						<div style="font-size:9px;line-height: 10px;">首页</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell  mui-col-xs-4"><a href="../../../../since2.0/_view/page/memos/first.jsp">
+						<span class="mui-icon mui-icon-compose" style="line-height: 25px;"></span>
+						<div style="font-size:9px;line-height: 10px;">留言板</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell  mui-col-xs-4">
+					<a href="../../../../since2.0/_view/page/myInfor/mine.jsp">
+						<span class="mui-icon mui-icon-person" style="line-height: 25px;"></span>
+						<div style="font-size:9px;line-height: 10px;">个人中心</div>
+					</a>
+				</li>
+			</ul>
+		</div>
 		<script src="../../../public/js/mui.min.js"></script>
-		<script>
-		</script>
-		<script src="../../../public/js/tools/changeTable.js" ></script>
-	
-		
-	</body>
+</body>
 </html>
-
-
-<!--
-订单对象  
-| 属性名      |  类型 |   备注  |
-| :-------- | :--------| :------ |
-|  id  |   str |  订单的id  |
-|  status  |   str |  订单的状态  |
-|  book  |   Object |  订单对应的图书的  |
-| outTime | str | 订单过期的时间 |
-|  buyAddress  |   str | 用户预留地址   |
-|  buyPhone  |   str |  用户预留电话  |
-|   isPay   |  boolean  |  是否线上付款   |
-图书对象 
-| 属性名      |  类型 |   备注  |
-| :-------- | :--------| :------ |
-|  id  |   str |  图书的id  |
-|  bookname |   str |  图书的名字  |
-|  price  |   str |  图书的价格  |
-|  img  |  str  | 图书封面图片的src   |
-|  use  |   str |  图书使用程度  |
-|  writer  |   str | 图书作者  |
-	
--->

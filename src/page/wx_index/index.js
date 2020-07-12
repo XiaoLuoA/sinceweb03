@@ -1,8 +1,3 @@
-// public 样式 放在这里是为避免重复引用和版本更新
-import 'antd/dist/antd.css';
-import './index.less';
-import umbrella from 'umbrella-storage';
-import message from 'antd/lib/message';
 import { getBooks } from '~/ajax/book';
 import { debug1 } from '~/util/debug';
 import { get } from '~/ajax/ajax_axios';
@@ -11,7 +6,6 @@ import codes from '~/config/codeConfig';
 debug1('hello');
 getBooks().then((data) => {
   if (data.code === codes.success) {
-    message.success('请求成功');
     showData(data);
     console.log(data);
     return;
@@ -53,15 +47,20 @@ function showData(data) {
           <p style="color:red; margin:6px;font-size:16px;">
             ￥${books[num].bookprice} 
             <small  style="color:#999; font-size:6px;"> ${books[num].bookclick}人购买</small>
-            <input class="mui-pull-right" type="submit" value="" style="background-repeat:no-repeat ;background-size:100% 100%;background-image:url(https://sincelibrary.oss-cn-shanghai.aliyuncs.com/%E8%B4%AD%E4%B9%B0.png);background-color:rgba(0,0,0,0);border:0px solid red;width:5vw;height:5vw; "/>
+            <input class="mui-pull-right" type="submit" value="${books[num].booknumb}" onclick="addbuy()" style="background-repeat:no-repeat ;background-size:100% 100%;background-image:url(https://sincelibrary.oss-cn-shanghai.aliyuncs.com/%E8%B4%AD%E4%B9%B0.png);background-color:rgba(0,0,0,0);border:0px solid red;width:5vw;height:5vw; "/>
           </p>
          </div>
          </div>
       </div>`;
-    }
+		}
+		
   }
-  document.getElementById('book').innerHTML = HTM;
+	document.getElementById('book').innerHTML = HTM;
+	
 }
 document.getElementById('index').addEventListener('click', toIndex)
 document.getElementById('memos').addEventListener('click', toMemos);
 document.getElementById('mine').addEventListener('click', toUser);
+function addbuy(booknumb){
+	alert(booknumb);
+}

@@ -1,9 +1,8 @@
-import './index.less'
-import codes from '~/config/codeConfig'
+import './index.less';
+import codes from '~/config/codeConfig';
 import {getUser} from '~/ajax/user';
 import {getWXList} from '~/ajax/wxlist';
 import message from 'antd/lib/message';
-
 getWXList('gdsflkghsdfoihgiosdfgdfgnghkm').then((data) => {
     if (data.code === codes.success){
         message.success('请求成功');
@@ -18,8 +17,6 @@ getWXList('gdsflkghsdfoihgiosdfgdfgnghkm').then((data) => {
         
     }
 });
-
-
 function showUserList(data){
     let htm = '';
     for(let i in data.data){
