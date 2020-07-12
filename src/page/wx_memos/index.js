@@ -1,8 +1,8 @@
-import './index.less'
-import codes from '~/config/codeConfig'
+import './index.less';
+import codes from '~/config/codeConfig';
 import message from 'antd/lib/message';
-import { getMemos, addMemos } from '~/ajax/memos'
-
+import { getMemos , addMemos } from '~/ajax/memos';
+import { toIndex , toMemos , toUser } from '~/util/jumpTo';
 getMemos().then((data) => {
   let allmessage = '';
   for (let i = 0; i < (data.data).length; i++) {
@@ -38,14 +38,12 @@ getMemos().then((data) => {
   }
 });
 
-let add = document.getElementById('open');
-add.addEventListener('click', function (ev) {
+let addBtn = document.getElementById('open');
+addBtn.addEventListener('click', function (ev) {
   addNew();
   let addMes = document.getElementById('addMes');
-  addMes.addEventListener('click', function () {
-    addMessage();
-  });
-});
+  addMes.addEventListener('click', addMessage);
+}
 // alert();
 function addNew() {
   layer.open({
@@ -80,9 +78,8 @@ function addMessage() {
     }
 
   });
-  mui.alert('添加成功！',
-  function(){
-    layer.closeAll();
-  });
-  
+  mui.alert('添加成功！', layer.closeAll);
 }
+document.getElementById('index').addEventListener('click', toIndex);
+document.getElementById('memos').addEventListener('click', toMemos);
+document.getElementById('mine').addEventListener('click', toUser);

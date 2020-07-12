@@ -4,7 +4,6 @@ import {getUser} from '~/ajax/user';
 import {getWXList} from '~/ajax/wxlist';
 import message from 'antd/lib/message';
 
-
 getWXList('gdsflkghsdfoihgiosdfgdfgnghkm').then((data) => {
     if (data.code === codes.success){
         message.success('请求成功');

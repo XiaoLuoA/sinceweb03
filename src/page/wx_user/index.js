@@ -2,7 +2,7 @@ import './index.less'
 import codes from '~/config/codeConfig'
 import {getUser} from '~/ajax/user';
 import message from 'antd/lib/message';
-
+import { toIndex,toMemos,toUser } from '~/util/jumpTo';
 getUser('123').then((data) => {
     if (data.code === codes.success){
         message.success('请求成功');
@@ -29,5 +29,12 @@ function showData(_data){
     document.getElementById('user_infor').innerHTML = htm;
 
 }
-
-
+document.getElementById('index').addEventListener('click',function(){
+	toIndex();
+});
+document.getElementById('memos').addEventListener('click',function(){
+	toMemos();
+});
+document.getElementById('mine').addEventListener('click',function(){
+	toUser();
+});
