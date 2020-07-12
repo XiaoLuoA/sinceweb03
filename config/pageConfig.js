@@ -13,18 +13,18 @@ module.exports = [
     name: 'login',
     title: 'since的login页面',
   },
-  {
-    name: 'user',
-    title: 'since的user页面',
-  },
-  {
-    name: 'wx_user',
-    title: '个人中心',
-  },
-  {
-    name: 'wx_list',
-    title: '我的订单',
-  },
+  // {
+  //   name: 'user',
+  //   title: 'since的user页面',
+  // },
+  // {
+  //   name: 'wx_user',
+  //   title: '个人中心',
+  // },
+  // {
+  //   name: 'wx_list',
+  //   title: '我的订单',
+  // },
   {
     name: 'wx_index',
     title: '森思书屋',

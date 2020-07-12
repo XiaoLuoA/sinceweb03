@@ -1,7 +1,8 @@
 import './index.less'
-import codes from "~/config/codeConfig"
+import codes from '~/config/codeConfig'
 import message from 'antd/lib/message';
-import { getMemos, addMemos } from "~/ajax/memos"
+import { getMemos, addMemos } from '~/ajax/memos'
+
 getMemos().then((data) => {
   let allmessage = '';
   for (let i = 0; i < (data.data).length; i++) {
@@ -10,7 +11,7 @@ getMemos().then((data) => {
     let name = one.wx_name;
     let content = one.message;
     let address = one.wx_address;
-    let time=one.message_time;
+    let time = one.message_time;
     let parent = document.getElementById('message');
     allmessage = allmessage +
       `
@@ -45,7 +46,7 @@ add.addEventListener('click', function (ev) {
     addMessage();
   });
 });
-//alert();
+// alert();
 function addNew() {
   layer.open({
     type: 1
@@ -63,7 +64,7 @@ function addNew() {
 }
 
 function addMessage() {
-  let textarea = document.getElementById("textarea");
+  let textarea = document.getElementById('textarea');
   let message = textarea.value;
   let wx_name = 'dk';
   let wx_image = 'mj'
@@ -79,7 +80,7 @@ function addMessage() {
     }
 
   });
-  mui.alert("添加成功！",
+  mui.alert('添加成功！',
   function(){
     layer.closeAll();
   });

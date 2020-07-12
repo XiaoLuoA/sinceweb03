@@ -4,9 +4,10 @@
   "description": "这是since用来更新技术栈的第一步",
   "main": "./src/index.js",
   "scripts": {
-    "build": "webpack",
+    "build": "cross-env NODE_ENV=prod webpack",
     "start": "cross-env NODE_ENV=dev ./node_modules/.bin/webpack-dev-server",
-    "start:proxy": "cross-env NODE_ENV=dev_proxy ./node_modules/.bin/webpack-dev-server"
+    "start:proxy": "cross-env NODE_ENV=dev_proxy ./node_modules/.bin/webpack-dev-server",
+    "gen": "node ./script/genPage"
   },
   "author": "fjr@icloud.com",
   "license": "ISC",
@@ -31,6 +32,7 @@
     "axios": "^0.19.2",
     "datejs": "^1.0.0-rc3",
     "debug": "^4.1.1",
+    "eslint": "^7.4.0",
     "loadsh": "^0.0.4",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
