@@ -25,9 +25,8 @@ getWXList(user).then((data) => {
 
 function showUserList(data){
     let htm='';
-    const wxList ='';
+    const wxList=data.data;
     for(let i in data.data){
-    wxList=data.data[i]
     htm= htm+`
     <div class="mui-card">
     <div class="mui-card-content">
@@ -36,14 +35,14 @@ function showUserList(data){
     <li class="mui-table-view-cell mui-media">
         <a href="javascript:;" class="">
             <img class="mui-media-object mui-pull-left imgBorder" src="https://img03.sogoucdn.com/app/a/100200009/b3e8ffe1-0633-4b4f-98ce-fe4e4e8ea625.jpg">
-            <!--http://www.sinceweb.xin/Image/books/${wxList.bookImage}-->
+            <!--http://www.sinceweb.xin/Image/books/${wxList[i].bookImage}-->
             <div class="mui-media-body">
-                <b>${wxList.bookName}</b> <span class=" mui-icon mui-icon-upload mui-pull-right mui-badge-red" style="font-size: 12px;padding: 5px;">待配送</span>
+                <b>${wxList[i].bookName}</b> <span class=" mui-icon mui-icon-upload mui-pull-right mui-badge-red" style="font-size: 12px;padding: 5px;">待配送</span>
                 <br>
-                <small>购买数量：${wxList.bookNum}</small><br>
-                <small>图书价格：${wxList.bookPrice}元</small>
+                <small>购买数量：${wxList[i].bookNum}</small><br>
+                <small>图书价格：${wxList[i].bookPrice}元</small>
                 <br><br>
-                已支付：<b style="color:red; font-size:18px;">￥${wxList.total} </b>
+                已支付：<b style="color:red; font-size:18px;">￥${wxList[i].total} </b>
             </div>
         </a>
     </li>
