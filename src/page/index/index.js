@@ -5,7 +5,7 @@ import 'antd/dist/antd.css';
 import './index.less';
 import umbrella from 'umbrella-storage';
 import message from 'antd/lib/message';
-import { getUser, doLogin, getIndex } from '~/ajax';
+import { getUser, doLogin, getIndex } from '~/ajax';0
 import { debug1 } from '~/util/debug';
 debug1('hello');
 umbrella.setLocalStorage('app', { appId: '123' });
@@ -15,15 +15,15 @@ console.log('从stroage中取出的内容', umbrella.getLocalStorage('app'));
 message.success('假装这是一个持续的loading');
 
 
-doLogin('dgb','drb').then((data) => {
-    if (data.code === "0"){
+doLogin('dgb', 'drb').then((data) => {
+    if (data.code === '0'){
         message.success('请求成功');
         console.log(data);
         return ;
-    }else if(data.code=="404"){
+    }else if(data.code == '404'){
         console.log(errMsg);
     }else{
-        console.log("error!!!!!!!!!!!!!");
+        console.log('error!!!!!!!!!!!!!');
         message.error('大概是用户的错吧');
     }
 }).finally(() => {
