@@ -1,8 +1,7 @@
 import './index.less'
-import codes from "~/config/codeConfig"
+import codes from '~/config/codeConfig'
 import message from 'antd/lib/message';
-import { getMemos, addMemos } from "~/ajax/memos"
-import { MultiCompiler } from 'webpack';
+import { getMemos, addMemos } from '~/ajax/memos'
 getMemos().then((data) => {
   let allmessage = '';
   for (let i = 0; i < (data.data).length; i++) {
@@ -11,18 +10,18 @@ getMemos().then((data) => {
     let name = one.wx_name;
     let content = one.message;
     let address = one.wx_address;
-    let time=one.message_time;
+    let time = one.message_time;
     let parent = document.getElementById('message');
     allmessage = allmessage +
       `
-      <div class="mui-card">
-        <div class="mui-card-header mui-card-media">
-              <img src="${img}" />
-              <div class="mui-media-body">
+      <div class='mui-card'>
+        <div class='mui-card-header mui-card-media'>
+              <img src='${img}' />
+              <div class='mui-media-body'>
                  <p>${name}</p>
                 <b>${content}</b>
                 <p>${time}</p>
-                <p>&nbsp;<span class="mui-icon mui-icon-location mui-pull-right" style="font-size: 15px;">${address}</span><span class=""></span></p>
+                <p>&nbsp;<span class='mui-icon mui-icon-location mui-pull-right' style='font-size: 15px;'>${address}</span><span class=''></span></p>
               </div>
           </div>
         </div>
@@ -46,7 +45,7 @@ add.addEventListener('click', function (ev) {
     addMessage();
   });
 });
-//alert();
+
 function addNew() {
   layer.open({
     type: 1
@@ -57,14 +56,14 @@ function addNew() {
            </div>
             <div style="text-align:center;">
             <button type="submit" id="addMes" class="mui-btn mui-btn-primary"  >确认</button>&nbsp;&nbsp;&nbsp;&nbsp;
-           <button type="button" class="mui-btn mui-btn-danger" onclick="layer.closeAll()">取消</button></div>' `
+           <button type="button" class="mui-btn mui-btn-danger" onclick="layer.closeAll()">取消</button></div>" `
     , anim: 'up'
     , style: 'position:fixed; left:0; top:0; width:100%; height:100%; border: none; -webkit-animation-duration: .5s; animation-duration: .5s;'
   });
 }
 
 function addMessage() {
-  let textarea = document.getElementById("textarea");
+  let textarea = document.getElementById('textarea');
   let message = textarea.value;
   let wx_name = 'dk';
   let wx_image = 'mj'
@@ -80,7 +79,7 @@ function addMessage() {
     }
 
   });
-  mui.alert("添加成功！",
+  mui.alert('添加成功！',
   function(){
     layer.closeAll();
   });
