@@ -2,7 +2,7 @@ import './index.less'
 import codes from '~/config/codeConfig'
 import message from 'antd/lib/message';
 import { getMemos, addMemos } from '~/ajax/memos'
-import { MultiCompiler } from 'webpack';
+
 getMemos().then((data) => {
   let allmessage = '';
   for (let i = 0; i < (data.data).length; i++) {
