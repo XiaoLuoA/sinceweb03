@@ -91,7 +91,7 @@ module.exports = {
     port: 8081,
     open: true,
     compress: true,
-    openPage: '/page/wx_list/index.html',
+    openPage: '/page/index/index.html',
     proxy: {
         '/user':
           {
