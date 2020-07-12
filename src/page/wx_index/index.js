@@ -47,20 +47,20 @@ function showData(data) {
           <p style="color:red; margin:6px;font-size:16px;">
             ￥${books[num].bookprice} 
             <small  style="color:#999; font-size:6px;"> ${books[num].bookclick}人购买</small>
-            <input class="mui-pull-right" type="submit" value="${books[num].booknumb}" onclick="addbuy()" style="background-repeat:no-repeat ;background-size:100% 100%;background-image:url(https://sincelibrary.oss-cn-shanghai.aliyuncs.com/%E8%B4%AD%E4%B9%B0.png);background-color:rgba(0,0,0,0);border:0px solid red;width:5vw;height:5vw; "/>
+            <input class="mui-pull-right" type="submit" value="${books[num].booknumb}" onclick="addbuy(this.value)" style="background-repeat:no-repeat ;background-size:100% 100%;background-image:url(https://sincelibrary.oss-cn-shanghai.aliyuncs.com/%E8%B4%AD%E4%B9%B0.png);background-color:rgba(0,0,0,0);border:0px solid red;width:5vw;height:5vw; "/>
           </p>
          </div>
          </div>
       </div>`;
-		}
-		
+	  }
+
   }
-	document.getElementById('book').innerHTML = HTM;
-	
+  document.getElementById('book').innerHTML = HTM;
 }
 document.getElementById('index').addEventListener('click', toIndex)
 document.getElementById('memos').addEventListener('click', toMemos);
 document.getElementById('mine').addEventListener('click', toUser);
-function addbuy(booknumb){
+// TODO 事件委托 交给fjr
+window.addbuy = function(booknumb){
 	alert(booknumb);
 }

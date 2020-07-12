@@ -36,60 +36,31 @@
 					<div class="mui-input-row">
 						<label>购买数量：</label>
 							<div class="mui-numbox" data-numbox-min='1' data-numbox-max='5' >
-								<button class="mui-btn mui-btn-numbox-minus" type="button">-</button>
+								<button class="mui-btn mui-btn-numbox-minus" id="delNum" type="button">-</button>
 								<input class="mui-input-numbox" id="people" type="number" />
-								<button class="mui-btn mui-btn-numbox-plus" type="button">+</button>
+								<button class="mui-btn mui-btn-numbox-plus" id="addNum" type="button">+</button>
 							</div>
 					</div>
-   				  
-     
-     
 		<ul class="mui-table-view">
-		
-		
 				<li class="mui-table-view-cell mui-media">
 					<a href="javascript:;">
 						<img class="mui-media-object mui-pull-left"  style="min-width:20vw;height:20vw; " src="http://sincelibrary.oss-cn-shanghai.aliyuncs.com/xhwl/xhwl_2.jpg">
 						<div class="mui-media-body">
 							计算机组成原理 
 							<p class='mui-ellipsis'>作者:刘华强</p>
-							<p style="color:red; font-size:18px;" class="mui-pull-right">￥9 </p>
+							<p class='mui-ellipsis'>价格:<span id="price">9</span>元</p>
+							<p style="color:red; font-size:20px;" class="mui-pull-right"><small>￥</small><span id="total">9</span> </p>
 						</div>
 					</a>
 				</li>
 		</ul>
-		    <input name="isPay" id="isPay-input" class="hidden" value="no">
-  		  	<input name="allPrice" id="allPrice" class="hidden" value="0">
-    		<input name="bookIds"class="hidden" value="">
-    		<input name="totalprice"class="hidden" value="">
 		<div style="text-align:center;">
 		<button  id="su" type="button" class="mui-btn mui-btn-green mui-icon mui-icon-weixin" disable="true"  style="margin:10px;" onclick="changInput(false)"> 微信支付</button>  	
-		
 		</div>
 		</form>
-
 		<div class="mui-button-row"  style="width:100vw; bottom:0;position:fixed;">
-		<!-- <button  id="payByCard" type="button" class="mui-btn mui-btn-primary mui-icon-extra mui-icon-extra-card" onclick="changInput(false)"> 货到付款</button>&nbsp;&nbsp;
-			 -->	
 		 <p>温馨提示：森思书屋目前仅服务于郑州大学</p>
   		</div>
- 	
   </body>
-  
   <script src="../../../public/js/mui.min.js"></script>
-  <script>
-    
-      
-      function changInput(isPay)
-	    {
-	        var tel = document.getElementById("tel").value;
-	        if(tel.length>10){
-	    	document.form.submit();
-	    	}else
-	    	{
-	    			mui.alert("请正确填写电话");
-	    	}
-	    }
-	    
-  </script>
 </html>
