@@ -2,6 +2,7 @@ import './index.less'
 import codes from '~/config/codeConfig'
 import message from 'antd/lib/message';
 import { getMemos, addMemos } from '~/ajax/memos'
+import { MultiCompiler } from 'webpack';
 getMemos().then((data) => {
   let allmessage = '';
   for (let i = 0; i < (data.data).length; i++) {
@@ -45,7 +46,7 @@ add.addEventListener('click', function (ev) {
     addMessage();
   });
 });
-
+// alert();
 function addNew() {
   layer.open({
     type: 1
@@ -56,7 +57,7 @@ function addNew() {
            </div>
             <div style="text-align:center;">
             <button type="submit" id="addMes" class="mui-btn mui-btn-primary"  >确认</button>&nbsp;&nbsp;&nbsp;&nbsp;
-           <button type="button" class="mui-btn mui-btn-danger" onclick="layer.closeAll()">取消</button></div>" `
+           <button type="button" class="mui-btn mui-btn-danger" onclick="layer.closeAll()">取消</button></div>' `
     , anim: 'up'
     , style: 'position:fixed; left:0; top:0; width:100%; height:100%; border: none; -webkit-animation-duration: .5s; animation-duration: .5s;'
   });
