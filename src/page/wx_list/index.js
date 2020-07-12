@@ -1,32 +1,30 @@
 import './index.less'
-import codes from "~/config/codeConfig"
-import {getUser} from "~/ajax/user";
-import {getWXList} from "~/ajax/wxlist";
+import codes from '~/config/codeConfig'
+import {getUser} from '~/ajax/user';
+import {getWXList} from '~/ajax/wxlist';
 import message from 'antd/lib/message';
 
 
-
-
-getWXList("gdsflkghsdfoihgiosdfgdfgnghkm").then((data) => {
+getWXList('gdsflkghsdfoihgiosdfgdfgnghkm').then((data) => {
     if (data.code === codes.success){
         message.success('请求成功');
         showUserList(data);
         console.log(data);
         return ;
     }else if(data.code === codes.LIST_OPENID_NOT_FOUND){
-        console.log("查找为空");
+        console.log('查找为空');
     }
     else {
-        console.log("error", data);
+        console.log('error', data);
         
     }
 });
 
 
 function showUserList(data){
-    let htm="";
+    let htm = '';
     for(let i in data.data){
-    htm= htm+`
+    htm = htm + `
     <div class="mui-card">
     <div class="mui-card-content">
     <div class="">
@@ -51,7 +49,7 @@ function showUserList(data){
 </div>                            
     `
     }
-    document.getElementById("muiDoctorCard").innerHTML= htm;
+    document.getElementById('muiDoctorCard').innerHTML = htm;
 
     }
 
@@ -65,7 +63,6 @@ function showUserList(data){
     //         console.log("error", data);
     //     }
     // });
-
    
     
     // function showData(_data){
