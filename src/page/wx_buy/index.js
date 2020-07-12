@@ -1,28 +1,28 @@
 import './index.less'
-import codes from '~/config/codeConfig'
-import {getUser} from '~/ajax/user';
-import message from 'antd/lib/message';
-import {getBooks} from '~/ajax/book';
-
+import { codes }from '~/config/codeConfig'
+import { getUser } from '~/ajax/user';
+import { getBooks } from '~/ajax/book';
 getUser('123').then((data) => {
     if (data.code === codes.success){
-        message.success('请求成功');
-        console.log(data);
         return ;
     }else {
         console.log('error', data);
     }
 });
-
-
 getBooks().then((data) => {
   if (data.code === codes.success){
-    message.success('请求成功');
-    console.log(data);
     return ;
   }else {
     console.log('error', data);
   }
 });
-
-
+function changInput(isPay){
+  var tel = document.getElementById('tel').value;
+  if(tel.length > 10){
+    document.form.submit();
+  }else{
+    mui.alert('请正确填写电话');
+  }
+}
+const addBtn = document.getElementById('addNum');
+const delBtn = document.getElementById('delNum');

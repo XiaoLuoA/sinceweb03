@@ -1,11 +1,11 @@
-import './index.less'
-import codes from '~/config/codeConfig'
-import message from 'antd/lib/message';
-import { getMemos, addMemos } from '~/ajax/memos'
+import './index.less';
+import codes from '~/config/codeConfig';
+import { getMemos, addMemos } from '~/ajax/memos';
+import { toIndex, toMemos, toUser } from '~/util/jumpTo';
 
 getMemos().then((data) => {
   let allmessage = '';
-  for (let i = 0; i < (data.data).length; i++) {
+  for (let i = (data.data).length-1; i >= 0 ; i--) {
     let one = data.data[i];
     let img = one.wx_image;
     let name = one.wx_name;
@@ -14,7 +14,7 @@ getMemos().then((data) => {
     let time = one.message_time;
     let parent = document.getElementById('message');
     allmessage = allmessage +
-      `
+    `
       <div class="mui-card">
         <div class="mui-card-header mui-card-media">
               <img src="${img}" />
@@ -30,7 +30,6 @@ getMemos().then((data) => {
   }
   document.getElementById('message').innerHTML = allmessage;
   if (data.code === codes.success) {
-    message.success('请求成功');
     console.log(data);
     return;
   } else {
@@ -38,21 +37,20 @@ getMemos().then((data) => {
   }
 });
 
-let add = document.getElementById('open');
-add.addEventListener('click', function (ev) {
+let addBtn = document.getElementById('open');
+addBtn.addEventListener('click', function (ev) {
   addNew();
   let addMes = document.getElementById('addMes');
-  addMes.addEventListener('click', function () {
-    addMessage();
-  });
+  addMes.addEventListener('click', addMessage);
 });
-// alert();
+
+
 function addNew() {
   layer.open({
     type: 1
     , content: `
-                      <header class="mui-bar mui-bar-nav"><h1 class="mui-title">留言</h1></header>
-                     <br><br><div class="mui-input-row" style="margin: 10px">  
+        <header class="mui-bar mui-bar-nav"><h1 class="mui-title">留言</h1></header>
+            <br><br><div class="mui-input-row" style="margin: 10px">  
             <textarea id="textarea" rows="5" maxlength="50"  placeholder="我想说的话..." name="content" ></textarea>
            </div>
             <div style="text-align:center;">
@@ -66,23 +64,25 @@ function addNew() {
 function addMessage() {
   let textarea = document.getElementById('textarea');
   let message = textarea.value;
-  let wx_name = 'dk';
-  let wx_image = 'mj'
+  let wx_name = '永存的大大咧咧';
+  let wx_image = 'https://img03.sogoucdn.com/app/a/100200009/b3e8ffe1-0633-4b4f-98ce-fe4e4e8ea625.jpg'
   let wx_address = '河南郑州';
   let opeAn_id = 'dwddasjadsahjdhsajda';
   addMemos(wx_name, wx_image, wx_address, opeAn_id, message).then((data) => {
     if (data.code === codes.success) {
-      message.success('请求成功');
-      console.log(data);
+      layer.closeAll();
+      mui.alert('留言成功！', '森思书屋',function()
+      {location.reload()} );
+      
       return;
     } else {
       console.log('error', data);
     }
 
   });
-  mui.alert('添加成功！',
-  function(){
-    layer.closeAll();
-  });
-  
+
+
 }
+document.getElementById('index').addEventListener('click', toIndex);
+document.getElementById('memos').addEventListener('click', toMemos);
+document.getElementById('mine').addEventListener('click', toUser);
