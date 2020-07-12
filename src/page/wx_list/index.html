@@ -2,20 +2,16 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>我的订单</title>
+		<title><%= htmlWebpackPlugin.options.title %></title>
 			<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
-	<meta name="apple-mobile-web-app-capable" content="yes">
-	<meta name="apple-mobile-web-app-status-bar-style" content="black">
-		   <LINK REL="SHORTCUT ICON" HREF="Since.ico">
-		<!-- <link rel="stylesheet" href="../../CSS/loadingOverLay.css" /> -->
-		<link rel="stylesheet" href="../../../public/css/mui.min.css">
-		<link rel="stylesheet" type="text/css" href="../../../public/css/icons-extra.css" />
+			<link rel="stylesheet" href="../../../public/css/mui.min.css">
+			<link rel="stylesheet" type="text/css" href="../../../public/css/icons-extra.css" />
 	</head>
 	<style>
-		.mui-control-content {background-color: white;min-height: 500px;}
-		.mui-control-content .mui-loading {margin-top: 50px;}
-		.imgBorder{border-radius: 0;min-height: 118px;min-width: 96px;}
-		.starSize{font-size: 12px;color: rgb(255,150,2);}
+			.mui-control-content {background-color: white;min-height: 500px;}
+			.mui-control-content .mui-loading {margin-top: 50px;}
+			.imgBorder{border-radius: 0;min-height: 118px;min-width: 96px;}
+			.starSize{font-size: 12px;color: rgb(255,150,2);}
 	</style>
 	<body>
 		<div class="page-moments">
@@ -47,36 +43,6 @@
 		                    </li>
 		              </ul>
 			</div>
-		<script src="../../../public/js/jquery-3.2.1.min.js"></script>	
-		<script src="../../../public/js/mui.min.js"></script>
-		<script>
-		</script>
-		<script src="../../../public/js/tools/changeTable.js" ></script>
-	
-		
+		<script src="../../../public/js/mui.min.js"></script>	
 	</body>
 </html>
-
-
-<!--
-订单对象  
-| 属性名      |  类型 |   备注  |
-| :-------- | :--------| :------ |
-|  id  |   str |  订单的id  |
-|  status  |   str |  订单的状态  |
-|  book  |   Object |  订单对应的图书的  |
-| outTime | str | 订单过期的时间 |
-|  buyAddress  |   str | 用户预留地址   |
-|  buyPhone  |   str |  用户预留电话  |
-|   isPay   |  boolean  |  是否线上付款   |
-图书对象 
-| 属性名      |  类型 |   备注  |
-| :-------- | :--------| :------ |
-|  id  |   str |  图书的id  |
-|  bookname |   str |  图书的名字  |
-|  price  |   str |  图书的价格  |
-|  img  |  str  | 图书封面图片的src   |
-|  use  |   str |  图书使用程度  |
-|  writer  |   str | 图书作者  |
-	
--->

@@ -1,6 +1,6 @@
 import './index.less'
-import codes from "~/config/codeConfig"
-import {getUser} from "~/ajax/user";
+import codes from '~/config/codeConfig'
+import {getUser} from '~/ajax/user';
 import message from 'antd/lib/message';
 
 getUser('123').then((data) => {
@@ -10,10 +10,10 @@ getUser('123').then((data) => {
         console.log(data);
         return ;
     }else if(data.code === codes.USER_NOT_FOUND){
-        console.log("没有查到这个用户");
+        console.log('没有查到这个用户');
     }
     else {
-        console.log("error", data);
+        console.log('error', data);
     }
 });
 
@@ -26,7 +26,7 @@ function showData(_data){
 										<p id="wxAddress"class='mui-ellipsis'>${_data.data.wxAddress}</p>
 									</div>
     `
-    document.getElementById("user_infor").innerHTML= htm;
+    document.getElementById('user_infor').innerHTML= htm;
 
 }
 
