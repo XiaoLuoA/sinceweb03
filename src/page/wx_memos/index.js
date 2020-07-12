@@ -1,8 +1,9 @@
 import './index.less';
 import codes from '~/config/codeConfig';
 import message from 'antd/lib/message';
-import { getMemos , addMemos } from '~/ajax/memos';
-import { toIndex , toMemos , toUser } from '~/util/jumpTo';
+import { getMemos, addMemos } from '~/ajax/memos';
+import { toIndex, toMemos, toUser } from '~/util/jumpTo';
+
 getMemos().then((data) => {
   let allmessage = '';
   for (let i = 0; i < (data.data).length; i++) {
@@ -14,7 +15,7 @@ getMemos().then((data) => {
     let time = one.message_time;
     let parent = document.getElementById('message');
     allmessage = allmessage +
-      `
+    `
       <div class="mui-card">
         <div class="mui-card-header mui-card-media">
               <img src="${img}" />
@@ -43,14 +44,15 @@ addBtn.addEventListener('click', function (ev) {
   addNew();
   let addMes = document.getElementById('addMes');
   addMes.addEventListener('click', addMessage);
-}
-// alert();
+});
+
+
 function addNew() {
   layer.open({
     type: 1
     , content: `
-                      <header class="mui-bar mui-bar-nav"><h1 class="mui-title">留言</h1></header>
-                     <br><br><div class="mui-input-row" style="margin: 10px">  
+        <header class="mui-bar mui-bar-nav"><h1 class="mui-title">留言</h1></header>
+            <br><br><div class="mui-input-row" style="margin: 10px">  
             <textarea id="textarea" rows="5" maxlength="50"  placeholder="我想说的话..." name="content" ></textarea>
            </div>
             <div style="text-align:center;">

@@ -1,9 +1,11 @@
+const host = 'http://localhost:8081//';
+
 export const toIndex = () => {
-  window.location.href = 'http://localhost:8081//page/wx_index/index.html';
+  window.location.href = host + 'page/wx_index/index.html';
 };
 export const toMemos = () => {
-  window.location.href = 'http://localhost:8081//page/wx_memos/index.html';
+  window.location.href = host + 'page/wx_memos/index.html';
 };
 export const toUser = () => {
-  window.location.href = 'http://localhost:8081//page/wx_user/index.html';
+  window.location.href = host + 'page/wx_user/index.html';
 };
