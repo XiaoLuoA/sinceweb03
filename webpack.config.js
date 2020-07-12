@@ -92,22 +92,26 @@ module.exports = {
     open: true,
     compress: true,
     openPage: '/page/index/index.html',
-    proxy: {
-        '/user':
-          {
-            target:"http://localhost:8080",
-            changeOrigin:true
-          },
-      '/book':
-        {
-          target:"http://localhost:8080",
-          changeOrigin:true
-        },
-      '/memos': {
-        target:"http://localhost:8080",
-        changeOrigin:true
-      },
-    }
+    // proxy: {
+    //     '/user':
+    //       {
+    //         target:"http://localhost:8080",
+    //         changeOrigin:true
+    //       },
+    //   '/book':
+    //     {
+    //       target:"http://localhost:8080",
+    //       changeOrigin:true
+    //     },
+    //   '/memos': {
+    //     target:"http://localhost:8080",
+    //     changeOrigin:true
+    //   },
+    //   '/pay': {
+    //     target:"http://localhost:8080",
+    //     changeOrigin:true
+    //   },
+    // }
   }
 
 };

@@ -13,6 +13,13 @@ export const doLogin = (userName, password) => {
   return post(host+'/login', { userName, password } );
 }
 
+export const prePay = (body,outTradeNo, totalFee, spbillCreateIp, notifyUrl, tradeType,signType= "MD5" ) => {
+  return post(host+'/pay/unifiedOrder',
+    {
+      body,outTradeNo, totalFee, spbillCreateIp, notifyUrl, tradeType,signType
+    });
+}
+
 
 
 
