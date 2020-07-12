@@ -19,7 +19,7 @@ getUser('123').then((data) => {
 
 function showData(_data){
     let htm;
-    htm=`
+    htm = `
     <img class="mui-media-object mui-pull-left head-img" id="head-img" src="${_data.data.wxImage}">
 									<div class="mui-media-body">
 										<p id="wxName">${_data.data.wxName}<p>
@@ -29,6 +29,5 @@ function showData(_data){
     document.getElementById('user_infor').innerHTML= htm;
 
 }
-
 
 

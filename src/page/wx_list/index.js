@@ -67,7 +67,6 @@ function showUserList(data){
     //         console.log('error', data);
     //     }
     // });
-
    
     
     // function showData(_data){
