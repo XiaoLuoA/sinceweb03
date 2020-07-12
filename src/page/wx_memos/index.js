@@ -14,14 +14,14 @@ getMemos().then((data) => {
     let parent = document.getElementById('message');
     allmessage = allmessage +
       `
-      <div class='mui-card'>
-        <div class='mui-card-header mui-card-media'>
-              <img src='${img}' />
-              <div class='mui-media-body'>
+      <div class="mui-card">
+        <div class="mui-card-header mui-card-media">
+              <img src="${img}" />
+              <div class="mui-media-body">
                  <p>${name}</p>
                 <b>${content}</b>
                 <p>${time}</p>
-                <p>&nbsp;<span class='mui-icon mui-icon-location mui-pull-right' style='font-size: 15px;'>${address}</span><span class=''></span></p>
+                <p>&nbsp;<span class="mui-icon mui-icon-location mui-pull-right" style="font-size: 15px;">${address}</span><span class=""></span></p>
               </div>
           </div>
         </div>
