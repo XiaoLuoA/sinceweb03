@@ -5,7 +5,9 @@ import {getWXList} from '~/ajax/wxlist';
 import message from 'antd/lib/message';
 
 
-getWXList('gdsflkghsdfoihgiosdfgdfgnghkm').then((data) => {
+const user = 'gdsflkghsdfoihgiosdfgdfgnghkm';
+
+getWXList(user).then((data) => {
     if (data.code === codes.success){
         message.success('请求成功');
         showUserList(data);
@@ -22,9 +24,10 @@ getWXList('gdsflkghsdfoihgiosdfgdfgnghkm').then((data) => {
 
 
 function showUserList(data){
-    let htm = '';
+    let htm='';
+    const wxList=data.data;
     for(let i in data.data){
-    htm = htm + `
+    htm= htm+`
     <div class="mui-card">
     <div class="mui-card-content">
     <div class="">
@@ -32,14 +35,14 @@ function showUserList(data){
     <li class="mui-table-view-cell mui-media">
         <a href="javascript:;" class="">
             <img class="mui-media-object mui-pull-left imgBorder" src="https://img03.sogoucdn.com/app/a/100200009/b3e8ffe1-0633-4b4f-98ce-fe4e4e8ea625.jpg">
-            <!--http://www.sinceweb.xin/Image/books/${data.data[i].bookImage}-->
+            <!--http://www.sinceweb.xin/Image/books/${wxList[i].bookImage}-->
             <div class="mui-media-body">
-                <b>${data.data[i].bookName}</b> <span class=" mui-icon mui-icon-upload mui-pull-right mui-badge-red" style="font-size: 12px;padding: 5px;">待配送</span>
+                <b>${wxList[i].bookName}</b> <span class=" mui-icon mui-icon-upload mui-pull-right mui-badge-red" style="font-size: 12px;padding: 5px;">待配送</span>
                 <br>
-                <small>购买数量：${data.data[i].bookNum}</small><br>
-                <small>图书价格：${data.data[i].bookPrice}元</small>
+                <small>购买数量：${wxList[i].bookNum}</small><br>
+                <small>图书价格：${wxList[i].bookPrice}元</small>
                 <br><br>
-                已支付：<b style="color:red; font-size:18px;">￥${data.data[i].total} </b>
+                已支付：<b style="color:red; font-size:18px;">￥${wxList[i].total} </b>
             </div>
         </a>
     </li>
@@ -49,7 +52,7 @@ function showUserList(data){
 </div>                            
     `
     }
-    document.getElementById('muiDoctorCard').innerHTML = htm;
+    document.getElementById('muiDoctorCard').innerHTML= htm;
 
     }
 
@@ -60,7 +63,7 @@ function showUserList(data){
     //         console.log(data);
     //         return ;
     //     }else {
-    //         console.log("error", data);
+    //         console.log('error', data);
     //     }
     // });
    

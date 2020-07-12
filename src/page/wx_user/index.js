@@ -26,7 +26,7 @@ function showData(_data){
 										<p id="wxAddress"class='mui-ellipsis'>${_data.data.wxAddress}</p>
 									</div>
     `
-    document.getElementById('user_infor').innerHTML = htm;
+    document.getElementById('user_infor').innerHTML= htm;
 
 }
 
