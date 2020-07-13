@@ -10,14 +10,6 @@ module.exports = [
     title: 'since的title页面',
   },
   {
-    name: 'login',
-    title: 'since的login页面',
-  },
-  {
-    name: 'user',
-    title: 'since的user页面',
-  },
-  {
     name: 'wx_user',
     title: '个人中心',
   },

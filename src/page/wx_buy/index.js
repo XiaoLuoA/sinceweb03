@@ -3,11 +3,11 @@ import { codes }from '~/config/codeConfig'
 import { getUser } from '~/ajax/user';
 import { getBooks } from '~/ajax/book';
 getUser('123').then((data) => {
-    if (data.code === codes.success){
-        return ;
-    }else {
-        console.log('error', data);
-    }
+  if (data.code === codes.success){
+      return ;
+  } else {
+      console.log('error', data);
+  }
 });
 getBooks().then((data) => {
   if (data.code === codes.success){
@@ -17,10 +17,10 @@ getBooks().then((data) => {
   }
 });
 function changInput(isPay){
-  var tel = document.getElementById('tel').value;
+  let tel = document.getElementById('tel').value;
   if(tel.length > 10){
     document.form.submit();
-  }else{
+  } else{
     mui.alert('请正确填写电话');
   }
 }
