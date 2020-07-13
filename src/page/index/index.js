@@ -3,6 +3,7 @@ import './index.less';
 import umbrella from 'umbrella-storage';
 import {getUser, doLogin, getIndex, prePay} from '~/ajax';
 import { debug1 } from '~/util/debug';
+import codes from "~/config/codeConfig";
 debug1('hello');
 umbrella.setLocalStorage('app', { appId: '123' });
 console.log('这是页面index heelo world');
@@ -20,7 +21,17 @@ prePay('4号楼','021564', '66', '18032659856').then((data) => {
   nonceStr = data.nonceStr;
   wx_package = data.package;
   paySign = data.sign;
-}).then(final);
+}).then((data) => {
+  if (data.code === codes.success){
+    message.success('请求成功');
+    console.log(data);
+    final();
+    return ;
+  }else {
+    message.error(data.data);
+    console.log('error', data);
+  }
+});
 
 
 function onBridgeReady(){
