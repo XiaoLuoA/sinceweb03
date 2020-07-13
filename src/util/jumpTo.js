@@ -17,5 +17,5 @@ export const toUser = () => {
 
 export const buyUrl = host + 'page/wx_buy/index.html';
 export const toBuy = (booknumb) => {
-  window.location.href = buyUrl+'?booknumb='+booknumb;
+  window.location.href = buyUrl + '?booknumb=' + booknumb;
 };

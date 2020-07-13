@@ -1,32 +1,16 @@
 import './index.less';
 import codes from '~/config/codeConfig';
 import { getMemos, addMemos } from '~/ajax/memos';
-import { toIndex, toMemos, toUser } from '~/util/jumpTo';
 
-getMemos().then((data) => {
+import rendermsgTemplate from './module/template/msgTemplate';
+
+import '~/module/initFooter';
+
+getMemos().then((res) => {
   let allmessage = '';
-  for (let i = data.data.length - 1; i >= 0; i--) {
-    let one = data.data[i];
-    let img = one.wx_image;
-    let name = one.wx_name;
-    let content = one.message;
-    let address = one.wx_address;
-    let time = one.message_time;
-    let parent = document.getElementById('message');
-    allmessage = allmessage +
-    `
-      <div class="mui-card">
-        <div class="mui-card-header mui-card-media">
-              <img src="${img}" />
-              <div class="mui-media-body">
-                 <p>${name}</p>
-                <b>${content}</b>
-                <p>${time}</p>
-                <p>&nbsp;<span class="mui-icon mui-icon-location mui-pull-right" style="font-size: 15px;">${address}</span><span class=""></span></p>
-              </div>
-          </div>
-        </div>
-      `;
+  for (let i in res.data) {
+    const msg = res.data[i];
+    allmessage = rendermsgTemplate(msg);
   }
   document.getElementById('message').innerHTML = allmessage;
   if (data.code === codes.success) {
@@ -78,8 +62,4 @@ function addMessage() {
 
   });
 
-
 }
-document.getElementById('index').addEventListener('click', toIndex);
-document.getElementById('memos').addEventListener('click', toMemos);
-document.getElementById('mine').addEventListener('click', toUser);

@@ -61,7 +61,7 @@ function addBuy(event) {
   toBuy(booknumb);
 }
 const search = document.getElementById('search');
-search.addEventListener('keydown',function(e){
+search.addEventListener('keydown', function(e) {
   const searchName = search.value;
   if(e.keyCode == 13){
     console.log(searchName);
