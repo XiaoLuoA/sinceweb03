@@ -12,7 +12,7 @@ let appId, timeStamp, wx_package,
 
 // 此段代码是微信支付
 //
-prePay('since-book', '123456', '123', '123.23.56.84', 'http://wxtest.easy.echosite.cn/notify/order', 'JSAPI').then((data) => {
+prePay('4号楼','021564', '66', '18032659856').then((data) => {
   console.log('ret ', data);
   appId = data.appId;
   timeStamp = data.timeStamp;
