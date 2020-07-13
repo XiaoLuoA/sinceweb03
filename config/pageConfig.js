@@ -36,5 +36,10 @@ module.exports = [
   {
     name: 'wx_buy',
     title: '购买',
-  }
+  },
+  {
+    name: 'push_list',
+    title: '订单管理',
+  },
+
 ];
