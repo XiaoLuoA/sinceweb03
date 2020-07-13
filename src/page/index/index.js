@@ -3,7 +3,7 @@ import './index.less';
 import umbrella from 'umbrella-storage';
 import {getUser, doLogin, getIndex, prePay} from '~/ajax';
 import { debug1 } from '~/util/debug';
-import codes from "~/config/codeConfig";
+import codes from '~/config/codeConfig';
 debug1('hello');
 umbrella.setLocalStorage('app', { appId: '123' });
 console.log('这是页面index heelo world');

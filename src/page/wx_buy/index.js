@@ -2,7 +2,7 @@ import './index.less'
 import  codes  from '~/config/codeConfig';
 import { getUser } from '~/ajax/user';
 import { getBook } from '~/ajax/book';
-
+import { prePay } from '~/ajax/index';
 function GetRequest() {
   let url = location.search; //获取url中”?”符后的字串
   let theRequest = new Object();
@@ -46,9 +46,11 @@ getBook(Request['booknumb']).then((data) => {
 // bookuse: "八成"
 // bookwriter: "名师讲坛"
 // bookzan: 0
+let theData = '';
 function showData(data){
   let content = document.getElementById('bookContent');
   const book = data.data;
+  theData = data.data;
   content.innerHTML = `
   <li class="mui-table-view-cell mui-media">
 					<a href="javascript:;">
@@ -64,9 +66,29 @@ function showData(data){
 }
 
 function changeInput(){
-  let tel = document.getElementById('tel').value;
-  if(tel.length > 10){
-    //document.form.submit();
+  const theTel = document.getElementById('tel').value;
+  const theAddress = document.getElementById('address').value;
+  const theCount = mui('#count').numbox().getValue();
+  if(theTel.length > 10){
+    prePay(theAddress, theData.booknumb, theCount , theTel).then((data) => {
+      console.log('ret ', data);
+      appId = data.appId;
+      timeStamp = data.timeStamp;
+      console.log('timestamp', timeStamp);
+      nonceStr = data.nonceStr;
+      wx_package = data.package;
+      paySign = data.sign;
+    }).then((data) => {
+      if (data.code === codes.success){
+        message.success('请求成功');
+        console.log(data);
+        final();
+        return ;
+      }else {
+        message.error(data.data);
+        console.log('error', data);
+      }
+    });
   } else{
     mui.alert('请正确填写电话');
   }
@@ -98,5 +120,37 @@ delBtn.addEventListener('click',function(){
   console.log(click);
 });
 
+function onBridgeReady(){
+  WeixinJSBridge.invoke(
+    'getBrandWCPayRequest', {
+      'appId':appId, // 公众号名称，由商户传入
+      'timeStamp':timeStamp, // 时间戳，自1970年以来的秒数
+      'nonceStr':nonceStr, // 随机串
+      'package':wx_package,
+      'signType':'MD5', // 微信签名方式：
+      'paySign':paySign // 微信签名
+    },
+    function(res){
+      if(res.err_msg == 'get_brand_wcpay_request:ok' ){
+        console.log('pay ok');
+        // 使用以上方式判断前端返回,微信团队郑重提示：
+        // res.err_msg将在用户支付成功后返回ok，但并不保证它绝对可靠。
+      }
+    });
+}
 
+function final() {
+  if (typeof WeixinJSBridge == 'undefined'){
+    if( document.addEventListener ){
+      console.log('document.addEventListener')
+      document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false);
+    }else if (document.attachEvent){
+      console.log('document.attachEvent')
+      document.attachEvent('WeixinJSBridgeReady', onBridgeReady);
+      document.attachEvent('onWeixinJSBridgeReady', onBridgeReady);
+    }
+  }else{
+    onBridgeReady();
+  }
+}
 

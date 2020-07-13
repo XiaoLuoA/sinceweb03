@@ -1,4 +1,4 @@
-const host = 'http://localhost:8081//';
+const host = 'http://localhost:8080//';
 
 export const indexUrl = host + 'page/wx_index/index.html';
 export const toIndex = () => {
