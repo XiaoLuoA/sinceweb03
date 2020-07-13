@@ -41,5 +41,17 @@ module.exports = [
     name: 'push_list',
     title: '订单管理',
   },
+  {
+    name: 'cooperation',
+    title: '商务合作',
+  },
+  {
+    name: 'attention',
+    title: '购买须知',
+  },
+  {
+    name: 'about',
+    title: '关于我们',
+  }
 
 ];
