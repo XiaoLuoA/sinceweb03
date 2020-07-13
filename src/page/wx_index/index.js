@@ -3,8 +3,8 @@ import { ajaxDebugger } from '~/util/debug';
 import { delegate } from '~/util/elemnet';
 import renderBookTemplate from './module/template/bookTemplate';
 import codes from '~/config/codeConfig';
-
 import '~/module/initFooter';
+import { toBuy } from '~/util/jumpTo';
 
 getBooks().then((data) => {
   if (data.code === codes.success) {
@@ -58,9 +58,8 @@ function renderBooks(data) {
 function addBuy(event) {
   const booknumb = event.delegateTarget.dataset.booknumb;
   console.log(booknumb);
-
+  toBuy(booknumb);
 }
-
 const search = document.getElementById('search');
 search.addEventListener('keydown',function(e){
   const searchName = search.value;
@@ -80,7 +79,6 @@ search.addEventListener('keydown',function(e){
     }).finally(() => {});
   }
 });
-
 delegate(bookListElement, 'input.buy_btn', 'click', addBuy, false);
 
 /**
