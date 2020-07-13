@@ -1,4 +1,4 @@
-const host = 'http://localhost:8080//';
+const host = 'http://wxtest.easy.echosite.cn/';
 
 export const indexUrl = host + 'page/wx_index/index.html';
 export const toIndex = () => {
