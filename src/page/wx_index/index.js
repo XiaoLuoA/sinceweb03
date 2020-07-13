@@ -47,7 +47,7 @@ function showData(data) {
           <p style="color:red; margin:6px;font-size:16px;">
             ￥${books[num].bookprice} 
             <small  style="color:#999; font-size:6px;"> ${books[num].bookclick}人购买</small>
-            <input class="mui-pull-right" type="submit" value="${books[num].booknumb}" onclick="addbuy(this.value)" style="background-repeat:no-repeat ;background-size:100% 100%;background-image:url(https://sincelibrary.oss-cn-shanghai.aliyuncs.com/%E8%B4%AD%E4%B9%B0.png);background-color:rgba(0,0,0,0);border:0px solid red;width:5vw;height:5vw; "/>
+            <input class="mui-pull-right" type="submit" value="${books[num].booknumb}" onclick="addbuy(this.value)" style="color:rgba(0,0,0,0); background-repeat:no-repeat ;background-size:100% 100%;background-image:url(https://sincelibrary.oss-cn-shanghai.aliyuncs.com/%E8%B4%AD%E4%B9%B0.png);background-color:rgba(0,0,0,0);border:0px solid red;width:5vw;height:5vw; "/>
           </p>
          </div>
          </div>
@@ -64,3 +64,9 @@ document.getElementById('mine').addEventListener('click', toUser);
 window.addbuy = function(booknumb){
 	alert(booknumb);
 }
+const search = document.getElementById('search');
+search.addEventListener('keydown',function(e){
+  if(e.keyCode==13){
+    console.log(search.value);
+  }
+});
