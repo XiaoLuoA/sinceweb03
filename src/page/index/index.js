@@ -3,6 +3,7 @@ import './index.less';
 import umbrella from 'umbrella-storage';
 import {getUser, doLogin, getIndex, prePay} from '~/ajax';
 import { debug1 } from '~/util/debug';
+import codes from "~/config/codeConfig";
 debug1('hello');
 umbrella.setLocalStorage('app', { appId: '123' });
 console.log('这是页面index heelo world');
@@ -12,7 +13,7 @@ let appId, timeStamp, wx_package,
 
 // 此段代码是微信支付
 //
-prePay('since-book', '123456', '123', '123.23.56.84', 'http://wxtest.easy.echosite.cn/notify/order', 'JSAPI').then((data) => {
+prePay('4号楼','021564', '66', '18032659856').then((data) => {
   console.log('ret ', data);
   appId = data.appId;
   timeStamp = data.timeStamp;
@@ -20,7 +21,17 @@ prePay('since-book', '123456', '123', '123.23.56.84', 'http://wxtest.easy.echosi
   nonceStr = data.nonceStr;
   wx_package = data.package;
   paySign = data.sign;
-}).then(final);
+}).then((data) => {
+  if (data.code === codes.success){
+    message.success('请求成功');
+    console.log(data);
+    final();
+    return ;
+  }else {
+    message.error(data.data);
+    console.log('error', data);
+  }
+});
 
 
 function onBridgeReady(){
