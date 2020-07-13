@@ -1,4 +1,4 @@
-export default  (wxItem) =>
+export default (wxItem) =>
   `<div class="mui-card">
     <div class="mui-card-content">
       <div class="">
