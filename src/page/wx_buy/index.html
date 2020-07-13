@@ -1,23 +1,11 @@
 
 <html>
   <head>
-    
     <title>确认订单</title>
-    
-
-	
 	<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
-	
-	<!--
-	<link rel="stylesheet" type="text/css" href="styles.css">
-	-->
-	<LINK REL="SHORTCUT ICON" HREF="Since.ico">
 	<link rel="stylesheet" href="../../../public/css/mui.min.css">
 	<link rel="stylesheet" type="text/css" href="../../../public/css/icons-extra.css" />
   </head>
-  <style>
-       
-    </style>
   <body>
   <header class="mui-bar mui-bar-nav">
 			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
@@ -35,9 +23,9 @@
 					</div>
 					<div class="mui-input-row">
 						<label>购买数量：</label>
-							<div class="mui-numbox" data-numbox-min='1' data-numbox-max='5' >
+							<div id="count" class="mui-numbox" data-numbox-min='1' data-numbox-max='5' >
 								<button class="mui-btn mui-btn-numbox-minus" id="delNum" type="button">-</button>
-								<input class="mui-input-numbox" id="people" type="number" />
+								<input class="mui-input-numbox"  type="number" />
 								<button class="mui-btn mui-btn-numbox-plus" id="addNum" type="button">+</button>
 							</div>
 					</div>
