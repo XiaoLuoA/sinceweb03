@@ -115,7 +115,7 @@ module.exports = {
     open: true,
     compress: true,
     openPage: '/page/index/index.html',
-    proxy: devProxy,
+    //proxy: devProxy,
     disableHostCheck: true,
   }
 

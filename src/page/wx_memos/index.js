@@ -5,7 +5,7 @@ import { toIndex, toMemos, toUser } from '~/util/jumpTo';
 
 getMemos().then((data) => {
   let allmessage = '';
-  for (let i = (data.data).length-1; i >= 0 ; i--) {
+  for (let i = data.data.length - 1; i >= 0; i--) {
     let one = data.data[i];
     let img = one.wx_image;
     let name = one.wx_name;
@@ -32,9 +32,8 @@ getMemos().then((data) => {
   if (data.code === codes.success) {
     console.log(data);
     return;
-  } else {
-    console.log('error', data);
   }
+  console.log('error', data);
 });
 
 let addBtn = document.getElementById('open');
@@ -71,9 +70,7 @@ function addMessage() {
   addMemos(wx_name, wx_image, wx_address, opeAn_id, message).then((data) => {
     if (data.code === codes.success) {
       layer.closeAll();
-      mui.alert('留言成功！', '森思书屋',function()
-      {location.reload()} );
-      
+      mui.alert('留言成功！', '森思书屋', location.reload );
       return;
     } else {
       console.log('error', data);

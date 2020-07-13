@@ -1,7 +1,8 @@
 
 <html>
   <head>
-    <title>确认订单</title>
+		<title>确认订单</title>
+	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
 	<link rel="stylesheet" href="../../../public/css/mui.min.css">
 	<link rel="stylesheet" type="text/css" href="../../../public/css/icons-extra.css" />
@@ -19,7 +20,7 @@
 					</div>
 					<div class="mui-input-row">
 						<label>配送地址：</label>
-						<input type="text" name="address" class="mui-input-clear" placeholder="如：男寝8-0001"  name="address" data-input-clear="5"><span class="mui-icon mui-icon-clear mui-hidden"></span>
+						<input id='address' type="text" name="address" class="mui-input-clear" placeholder="如：男寝8-0001"  name="address" data-input-clear="5"><span class="mui-icon mui-icon-clear mui-hidden"></span>
 					</div>
 					<div class="mui-input-row">
 						<label>购买数量：</label>
@@ -29,7 +30,7 @@
 								<button class="mui-btn mui-btn-numbox-plus" id="addNum" type="button">+</button>
 							</div>
 					</div>
-		<ul class="mui-table-view">
+		<ul class="mui-table-view" id='bookContent'>
 				<li class="mui-table-view-cell mui-media">
 					<a href="javascript:;">
 						<img class="mui-media-object mui-pull-left"  style="min-width:20vw;height:20vw; " src="http://sincelibrary.oss-cn-shanghai.aliyuncs.com/xhwl/xhwl_2.jpg">
@@ -43,7 +44,7 @@
 				</li>
 		</ul>
 		<div style="text-align:center;">
-		<button  id="su" type="button" class="mui-btn mui-btn-green mui-icon mui-icon-weixin" disable="true"  style="margin:10px;" onclick="changInput(false)"> 微信支付</button>  	
+		<button  id="payBtn" type="button" class="mui-btn mui-btn-green mui-icon mui-icon-weixin"  style="margin:10px;"> 微信支付</button>  	
 		</div>
 		</form>
 		<div class="mui-button-row"  style="width:100vw; bottom:0;position:fixed;">

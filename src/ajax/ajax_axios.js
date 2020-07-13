@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { ajaxDebugger } from '~/util/debug';
 import message from 'antd/lib/message';
+import 'antd/dist/antd.css';
 import { host } from './config';
 
 /**
