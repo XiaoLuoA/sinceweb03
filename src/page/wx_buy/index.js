@@ -84,15 +84,10 @@ function changeInput(){
       wx_package = data.package;
       paySign = data.sign;
     }).then((data) => {
-      if (data.code === codes.success){
         message.success('请求成功');
         console.log(data);
         final();
         return ;
-      }else {
-        message.error(data.data);
-        console.log('error', data);
-      }
     });
   } else{
     mui.alert('请正确填写电话');
