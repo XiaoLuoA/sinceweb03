@@ -65,6 +65,9 @@ function showData(data){
 				</li>`
 }
 
+let appId, timeStamp, wx_package,
+  paySign, nonceStr;
+
 function changeInput(){
   const theTel = document.getElementById('tel').value;
   const theAddress = document.getElementById('address').value;
@@ -72,6 +75,8 @@ function changeInput(){
   if(theTel.length > 10){
     prePay(theAddress, theData.booknumb, theCount , theTel).then((data) => {
       console.log('ret ', data);
+      const reqs = data.data;
+      console.log(reqs);
       appId = data.appId;
       timeStamp = data.timeStamp;
       console.log('timestamp', timeStamp);
