@@ -66,6 +66,9 @@ function showData(data){
   </li>`
 }
 
+let appId, timeStamp, wx_package,
+  paySign, nonceStr;
+
 function changeInput(){
   const theTel = document.getElementById('tel').value;
   const theAddress = document.getElementById('address').value;
@@ -73,6 +76,8 @@ function changeInput(){
   if(theTel.length > 10){
     prePay(theAddress, theData.booknumb, theCount, theTel).then((data) => {
       console.log('ret ', data);
+      const reqs = data.data;
+      console.log(reqs);
       appId = data.appId;
       timeStamp = data.timeStamp;
       console.log('timestamp', timeStamp);
@@ -80,15 +85,10 @@ function changeInput(){
       wx_package = data.package;
       paySign = data.sign;
     }).then((data) => {
-      if (data.code === codes.success){
         message.success('请求成功');
         console.log(data);
         final();
         return ;
-      }else {
-        message.error(data.data);
-        console.log('error', data);
-      }
     });
   } else{
     mui.alert('请正确填写电话');
