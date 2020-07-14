@@ -7,7 +7,9 @@
     "build": "cross-env NODE_ENV=prod webpack",
     "start": "cross-env NODE_ENV=dev ./node_modules/.bin/webpack-dev-server",
     "start:proxy": "cross-env NODE_ENV=dev_proxy ./node_modules/.bin/webpack-dev-server",
-    "gen": "node ./script/genPage"
+    "gen": "node ./script/genPage",
+    "lint1": "eslint src/*/*.js",
+    "lint2": "eslint src/*/*/*.js"
   },
   "author": "fjr@icloud.com",
   "license": "ISC",
