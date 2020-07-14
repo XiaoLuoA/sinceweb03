@@ -1,9 +1,12 @@
+import './index.less';
 import codes from '~/config/codeConfig';
 import { getWXList } from '~/ajax/wxlist';
 import renderWxTemplate from './module/template/wxTemplate'; 
 const user = 'gdsflkghsdfoihgiosdfgdfgnghkm';
+
 getWXList(user).then((data) => {
     if (data.code === codes.success){
+        console.log(data);
         showUserList(data);
         return ;
     }else if(data.code === codes.LIST_OPENID_NOT_FOUND){
