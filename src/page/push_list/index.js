@@ -13,7 +13,6 @@ import './index.less';
 getAllPushList().then((data) => {
   if (data.code === codes.success) {
     showAllPushList(data);
-    return;
   } else {
     console.log('error', data);
     return;
@@ -44,7 +43,7 @@ delegate(attachEvent, '#inerEvent', 'click', send, false);
 function send(e) {
   console.log(e.delegateTarget);
   let no = e.delegateTarget.dataset.no;
-  if (no == null) {
+  if (no == undefined ) {
     console.log('error');
     return;
   } else {
