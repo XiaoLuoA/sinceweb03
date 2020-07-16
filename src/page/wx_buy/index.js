@@ -1,27 +1,14 @@
 import './index.less'
-import  codes  from '~/config/codeConfig';
-import { getUser } from '~/ajax/user';
+import codes from '~/config/codeConfig';
 import { getBook } from '~/ajax/book';
 import { prePay } from '~/ajax/index';
 import { toIndex } from '~/util/jumpTo';
-
-function GetRequest() {
-  let url = location.search; //获取url中”?”符后的字串
-  let theRequest = new Object();
-  if (url.indexOf('?') != -1) {
-     let str = url.substr(1);
-     let strs = str.split('&');
-     for(var i = 0; i < strs.length; i ++) {
-        theRequest[strs[i].split('=')[0]]=unescape(strs[i].split('=')[1]);
-     }
-  }
-  return theRequest;
-}
 
 const booknumb = localStorage.getItem('booknumb');
 
 getBook(booknumb).then((data) => {
   if (data.code === codes.success){
+
       console.log(data);
       showData(data);
       return ;
@@ -29,6 +16,7 @@ getBook(booknumb).then((data) => {
       mui.alert('数据加载异常，请勿点击购买');
       console.log('error', data);
   }
+  console.log('error', data);
 });
 // bookads: 0
 // bookclick: 2
@@ -53,16 +41,16 @@ function showData(data){
   theData = data.data;
   content.innerHTML = `
   <li class="mui-table-view-cell mui-media">
-					<a href="javascript:;">
-						<img class="mui-media-object mui-pull-left"  style="min-width:20vw;height:20vw; " src="https://sincelibrary.oss-cn-shanghai.aliyuncs.com/since2.0/Image/books/${book.bookimage1}">
-						<div class="mui-media-body">
-							${book.bookname}
-							<p class='mui-ellipsis'>使用程度:${book.bookuse}新</p>
-							<p class='mui-ellipsis'>价格:<span id="price">${book.bookprice}</span>元</p>
-							<p style="color:red; font-size:20px;" class="mui-pull-right"><small>￥</small><span id="total">${book.bookprice}</span> </p>
-						</div>
-					</a>
-				</li>`
+    <a href="javascript:;">
+      <img class="mui-media-object mui-pull-left"  style="min-width:20vw;height:20vw; " src="https://sincelibrary.oss-cn-shanghai.aliyuncs.com/since2.0/Image/books/${book.bookimage1}">
+      <div class="mui-media-body">
+        ${book.bookname}
+        <p class='mui-ellipsis'>使用程度:${book.bookuse}新</p>
+        <p class='mui-ellipsis'>价格:<span id="price">${book.bookprice}</span>元</p>
+        <p style="color:red; font-size:20px;" class="mui-pull-right"><small>￥</small><span id="total">${book.bookprice}</span> </p>
+      </div>
+    </a>
+  </li>`
 }
 
 let appId, timeStamp, wx_package,
@@ -75,7 +63,7 @@ function changeInput(){
   const theAddress = school + address;
   const theCount = mui('#count').numbox().getValue();
   if(theTel.length > 10){
-    prePay(theAddress, theData.booknumb, theCount , theTel).then((data) => {
+    prePay(theAddress, theData.booknumb, theCount, theTel).then((data) => {
       console.log('ret ', data);
       const reqs = data.data;
       console.log(reqs);
@@ -103,7 +91,7 @@ let click = 1;
 const addBtn = document.getElementById('addNum');
 const delBtn = document.getElementById('delNum');
 
-addBtn.addEventListener('click',function(){
+addBtn.addEventListener('click', function() {
   click++;
   let price = document.getElementById('price');
   let count = mui('#count').numbox().getValue();
@@ -112,7 +100,7 @@ addBtn.addEventListener('click',function(){
   console.log(click);
 });
 
-delBtn.addEventListener('click',function(){
+delBtn.addEventListener('click', function(){
   click--;
   let price = document.getElementById('price');
   let count = mui('#count').numbox().getValue();
@@ -124,12 +112,12 @@ delBtn.addEventListener('click',function(){
 function onBridgeReady(){
   WeixinJSBridge.invoke(
     'getBrandWCPayRequest', {
-      'appId':appId, // 公众号名称，由商户传入
-      'timeStamp':timeStamp, // 时间戳，自1970年以来的秒数
-      'nonceStr':nonceStr, // 随机串
-      'package':wx_package,
-      'signType':'MD5', // 微信签名方式：
-      'paySign':paySign // 微信签名
+      'appId': appId, // 公众号名称，由商户传入
+      'timeStamp': timeStamp, // 时间戳，自1970年以来的秒数
+      'nonceStr': nonceStr, // 随机串
+      'package': wx_package,
+      'signType': 'MD5', // 微信签名方式：
+      'paySign': paySign // 微信签名
     },
     function(res){
       if(res.err_msg == 'get_brand_wcpay_request:ok' ){

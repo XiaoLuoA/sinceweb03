@@ -15,6 +15,7 @@ export const toUser = () => {
   window.location.href = userUrl;
 };
 
+
 export const buyUrl = host + 'to/buy';
 export const toBuy = () => {
   window.location.href = buyUrl;
@@ -38,4 +39,5 @@ export const toAttention = () => {
 export const cooperationUrl = host + 'to/cooperation';
 export const toCooperation = () => {
   window.location.href = cooperationUrl;
+
 };

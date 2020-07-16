@@ -82,7 +82,7 @@ function addBuy(event) {
   toBuy();
 }
 const search = document.getElementById('search');
-search.addEventListener('keydown',function(e){
+search.addEventListener('keydown', function(e) {
   const searchName = search.value;
   if(e.keyCode == 13){
     console.log(searchName);
