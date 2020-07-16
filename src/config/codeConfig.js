@@ -4,7 +4,8 @@ module.exports = {
     MEMOS_MESSAGE_IS_NULL: '700_002',
     MEMOS_GET_IS_NULL: '700_003',
     BOOK_NOT_FIND: '800_401',
-    USER_NOT_FOUND: '800_402', // 没有查到这本书
+    Book_NOT_ENOUGH: '800_402',
+    USER_NOT_FOUND: '801_402', // 没有查到这本书
     LIST_OPENID_NOT_FOUND: '900_401', // 查找为空
     LIST_ID_NOT_FOUND: '900_402', // 发货失败
     LIST_BOOK_NUM_NO: '900_403', // 库存不足

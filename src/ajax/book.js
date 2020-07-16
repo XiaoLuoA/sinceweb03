@@ -6,8 +6,8 @@ export const getBooks = () => {
 export const getBook = (id) => {
   return get(host + '/book/findBookById', { id });
 }
-export const buyBook = (booknumb) => {
-  return get(host + '/book/addClick', { booknumb });
+export const buyBook = (bookNumb) => {
+  return get(host + '/book/addClick', { bookNumb });
 }
 export const findBooksByName = (bookName) => {
   return get(host + '/book/findAllByBookName', { bookName });

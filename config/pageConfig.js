@@ -6,10 +6,6 @@
 
 module.exports = [
   {
-    name: 'index',
-    title: 'since的title页面',
-  },
-  {
     name: 'wx_user',
     title: '个人中心',
   },
@@ -44,6 +40,10 @@ module.exports = [
   {
     name: 'about',
     title: '关于我们',
+  },
+  {
+    name: 'error',
+    title: '登录失败',
   }
 
 ];

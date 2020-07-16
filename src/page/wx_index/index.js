@@ -4,7 +4,27 @@ import { delegate } from '~/util/elemnet';
 import renderBookTemplate from './module/template/bookTemplate';
 import codes from '~/config/codeConfig';
 import '~/module/initFooter';
-import { toBuy } from '~/util/jumpTo';
+import { toBuy, toError  } from '~/util/jumpTo';
+import { wxLogin } from '~/ajax/user';
+
+wxLogin().then((data) => {
+  if (data.code === codes.success ) {
+    const theUser = data.data;
+    let objString = JSON.stringify(data.data);
+    let user = localStorage.setItem('wx_user', objString);
+    console.log(objString);
+    let objNew = JSON.parse(user);
+    console.log(objNew.nickname);
+    const city = theUser.city;
+    console.log(city);
+    const province = theUser.province;
+    const nickname = theUser.nickname;
+    const headImgUrl = theUser.headImgUrl;
+    const openId = theUser.openId;
+  }else{
+    toError();
+  }
+});
 
 getBooks().then((data) => {
   if (data.code === codes.success) {
@@ -58,7 +78,8 @@ function renderBooks(data) {
 function addBuy(event) {
   const booknumb = event.delegateTarget.dataset.booknumb;
   console.log(booknumb);
-  toBuy(booknumb);
+  localStorage.setItem('booknumb',booknumb);
+  toBuy();
 }
 const search = document.getElementById('search');
 search.addEventListener('keydown', function(e) {

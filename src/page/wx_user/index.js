@@ -2,10 +2,16 @@ import './index.less'
 import codes from '~/config/codeConfig'
 import {getUser} from '~/ajax/user';
 import message from 'antd/lib/message';
-
 import '~/module/initFooter';
+import { toIndex, toMemos, toUser, toError } from '~/util/jumpTo';
 
-getUser('123').then((data) => {
+const wx_user = localStorage.getItem('wx_user');
+let user = JSON.parse(wx_user);
+const wx_openId = user.openId;
+
+console.log(wx_openId);
+
+getUser(wx_openId).then((data) => {
   if (data.code === codes.success){
     message.success('请求成功');
     showData(data);

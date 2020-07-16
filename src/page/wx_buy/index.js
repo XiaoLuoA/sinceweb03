@@ -2,32 +2,19 @@ import './index.less'
 import codes from '~/config/codeConfig';
 import { getBook } from '~/ajax/book';
 import { prePay } from '~/ajax/index';
+import { toIndex } from '~/util/jumpTo';
 
+const booknumb = localStorage.getItem('booknumb');
 
-// TODO 作为工具函数放入util
-function GetRequest() {
-  let url = location.search; // 获取url中”?”符后的字串
-  let theRequest = new Object();
-  if (url.indexOf('?') != -1) {
-    let str = url.substr(1);
-    let strs = str.split('&');
-    for (let i in strs) {
-      const str = strs[i];
-      theRequest[strs[i].split('=')[0]] = unescape(strs[i].split('=')[1]);
-    }
-  }
-  return theRequest;
-}
-
-let Request = GetRequest();
-
-console.log(Request['booknumb']);
-
-getBook(Request['booknumb']).then((data) => {
+getBook(booknumb).then((data) => {
   if (data.code === codes.success){
-    console.log(data);
-    showData(data);
-    return ;
+
+      console.log(data);
+      showData(data);
+      return ;
+  } else {
+      mui.alert('数据加载异常，请勿点击购买');
+      console.log('error', data);
   }
   console.log('error', data);
 });
@@ -68,24 +55,25 @@ function showData(data){
 
 let appId, timeStamp, wx_package,
   paySign, nonceStr;
-
+ 
 function changeInput(){
   const theTel = document.getElementById('tel').value;
-  const theAddress = document.getElementById('address').value;
+  const school = document.getElementById('school').value;
+  let address = document.getElementById('address').value;
+  const theAddress = school + address;
   const theCount = mui('#count').numbox().getValue();
   if(theTel.length > 10){
     prePay(theAddress, theData.booknumb, theCount, theTel).then((data) => {
       console.log('ret ', data);
       const reqs = data.data;
       console.log(reqs);
-      appId = data.appId;
-      timeStamp = data.timeStamp;
+      appId = reqs.appId;
+      timeStamp = reqs.timeStamp;
       console.log('timestamp', timeStamp);
-      nonceStr = data.nonceStr;
-      wx_package = data.package;
-      paySign = data.sign;
+      nonceStr = reqs.nonceStr;
+      wx_package = reqs.package;
+      paySign = reqs.sign;
     }).then((data) => {
-        message.success('请求成功');
         console.log(data);
         final();
         return ;
@@ -136,6 +124,9 @@ function onBridgeReady(){
         console.log('pay ok');
         // 使用以上方式判断前端返回,微信团队郑重提示：
         // res.err_msg将在用户支付成功后返回ok，但并不保证它绝对可靠。
+        mui.alert('支付成功',function(){
+          toIndex();
+        });
       }
     });
 }

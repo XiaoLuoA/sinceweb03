@@ -1,21 +1,43 @@
 const host = 'http://wxtest.easy.echosite.cn/';
 
-export const indexUrl = host + 'page/wx_index/index.html';
+export const indexUrl = host + 'to/index';
 export const toIndex = () => {
   window.location.href = IndexUrl;
 };
 
-export const memosUrl = host + 'page/wx_memos/index.html';
+export const memosUrl = host + 'to/memos';
 export const toMemos = () => {
   window.location.href = memosUrl;
 };
 
-export const userUrl = host + 'page/wx_user/index.html';
+export const userUrl = host + 'to/user';
 export const toUser = () => {
   window.location.href = userUrl;
 };
 
-export const buyUrl = host + 'page/wx_buy/index.html';
-export const toBuy = (booknumb) => {
-  window.location.href = buyUrl + '?booknumb=' + booknumb;
+
+export const buyUrl = host + 'to/buy';
+export const toBuy = () => {
+  window.location.href = buyUrl;
+};
+
+export const errorUrl = host + 'to/error';
+export const toError = () => {
+  window.location.href = errorUrl;
+};
+
+export const aboutUrl = host + 'to/about';
+export const toAbout = () => {
+  window.location.href = aboutUrl;
+};
+
+export const attentionUrl = host + 'to/attention';
+export const toAttention = () => {
+  window.location.href = attentionUrl;
+};
+
+export const cooperationUrl = host + 'to/cooperation';
+export const toCooperation = () => {
+  window.location.href = cooperationUrl;
+
 };
