@@ -61,16 +61,20 @@ function addNew() {
 }
 
 function addMessage() {
+  let objNew = localStorage.getItem('wx_user');
+  console.log(objNew);
+  let wx_user = JSON.parse(objNew);
   let textarea = document.getElementById('textarea');
   let message = textarea.value;
-  let wx_name = '永存的大大咧咧';
-  let wx_image = 'https://img03.sogoucdn.com/app/a/100200009/b3e8ffe1-0633-4b4f-98ce-fe4e4e8ea625.jpg'
-  let wx_address = '河南郑州';
-  let opeAn_id = 'dwddasjadsahjdhsajda';
+  let wx_name = wx_user.nickname;
+  let wx_image = wx_user.headImgUrl;
+  let wx_address = wx_user.province + wx_user.city;
+  let opeAn_id = wx_user.openId;
   addMemos(wx_name, wx_image, wx_address, opeAn_id, message).then((data) => {
     if (data.code === codes.success) {
       layer.closeAll();
-      mui.alert('留言成功！', '森思书屋', location.reload );
+      mui.alert('留言成功！', '森思书屋', function(){
+        location.reload });
       return;
     } else {
       console.log('error', data);

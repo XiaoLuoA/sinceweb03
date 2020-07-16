@@ -2,9 +2,17 @@ import './index.less';
 import codes from '~/config/codeConfig';
 import { getWXList } from '~/ajax/wxlist';
 import renderWxTemplate from './module/template/wxTemplate'; 
-const user = 'gdsflkghsdfoihgiosdfgdfgnghkm';
 
-getWXList(user).then((data) => {
+const wx_user = localStorage.getItem('wx_user');
+let user = JSON.parse(wx_user);
+const wx_openId = user.openId;
+console.log(wx_openId);
+if(wx_openId.length<10)
+{
+  toError();
+}
+
+getWXList(wx_openId).then((data) => {
     if (data.code === codes.success){
         console.log(data);
         showUserList(data);
