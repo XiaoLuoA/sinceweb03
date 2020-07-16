@@ -10,13 +10,13 @@ import './index.less';
 // import {getUser} from '~/ajax/user';
 
 getAllPushList().then((data) => {
-  if (data.code === codes.success){
+  if (data.code === codes.success) {
     showAllPushList(data);
-    return ;
+    return;
   }
   console.log('error', data);
 });
-function showAllPushList(data){
+function showAllPushList(data) {
   let htm = '';
   let htmlred = '';
   let htmlgreen = '';

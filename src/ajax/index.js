@@ -15,7 +15,7 @@ export const doLogin = (userName, password) => {
 
 export const prePay = (addr, bookId, buyNum, tel) => {
   return post(host + '/pay/unifiedOrder',
-    {addr, bookId, buyNum, tel});
+    { addr, bookId, buyNum, tel });
 }
 
 

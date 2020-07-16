@@ -1,9 +1,6 @@
-import './index.less';
 import codes from '~/config/codeConfig';
 import { getMemos, addMemos } from '~/ajax/memos';
-
 import rendermsgTemplate from './module/template/msgTemplate';
-
 import '~/module/initFooter';
 
 getMemos().then((res) => {
@@ -57,8 +54,9 @@ function addMessage() {
   addMemos(wx_name, wx_image, wx_address, opeAn_id, message).then((data) => {
     if (data.code === codes.success) {
       layer.closeAll();
-      mui.alert('留言成功！', '森思书屋', function(){
-        location.reload });
+      mui.alert('留言成功！', '森思书屋', function () {
+        location.reload;
+      });
       return;
     } else {
       console.log('error', data);

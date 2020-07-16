@@ -15,7 +15,7 @@ const links = [
 ];
 for (let link of links) {
   try {
-    const [id, linkUrl ] = link;
+    const [id, linkUrl] = link;
     // document.getElementById(id).onclick = jumpFun;
     document.getElementById(id).querySelector('a').setAttribute('href', linkUrl);
   } catch (e) {
