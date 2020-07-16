@@ -7,11 +7,10 @@ import { toIndex } from '~/util/jumpTo';
 const booknumb = localStorage.getItem('booknumb');
 
 getBook(booknumb).then((data) => {
-  if (data.code === codes.success){
-
-      console.log(data);
-      showData(data);
-      return ;
+  if (data.code === codes.success) {
+    console.log(data);
+    showData(data);
+    return;
   } else {
       mui.alert('数据加载异常，请勿点击购买');
       console.log('error', data);
@@ -35,7 +34,7 @@ getBook(booknumb).then((data) => {
 // bookwriter: "名师讲坛"
 // bookzan: 0
 let theData = '';
-function showData(data){
+function showData(data) {
   let content = document.getElementById('bookContent');
   const book = data.data;
   theData = data.data;
@@ -56,13 +55,13 @@ function showData(data){
 let appId, timeStamp, wx_package,
   paySign, nonceStr;
  
-function changeInput(){
+function changeInput() {
   const theTel = document.getElementById('tel').value;
   const school = document.getElementById('school').value;
   let address = document.getElementById('address').value;
   const theAddress = school + address;
   const theCount = mui('#count').numbox().getValue();
-  if(theTel.length > 10){
+  if (theTel.length > 10) {
     prePay(theAddress, theData.booknumb, theCount, theTel).then((data) => {
       console.log('ret ', data);
       const reqs = data.data;
@@ -76,9 +75,9 @@ function changeInput(){
     }).then((data) => {
         console.log(data);
         final();
-        return ;
+        return;
     });
-  } else{
+  } else {
     mui.alert('请正确填写电话');
   }
 }
@@ -91,7 +90,7 @@ let click = 1;
 const addBtn = document.getElementById('addNum');
 const delBtn = document.getElementById('delNum');
 
-addBtn.addEventListener('click', function() {
+addBtn.addEventListener('click', function () {
   click++;
   let price = document.getElementById('price');
   let count = mui('#count').numbox().getValue();
@@ -100,7 +99,7 @@ addBtn.addEventListener('click', function() {
   console.log(click);
 });
 
-delBtn.addEventListener('click', function(){
+delBtn.addEventListener('click', function () {
   click--;
   let price = document.getElementById('price');
   let count = mui('#count').numbox().getValue();
@@ -109,7 +108,7 @@ delBtn.addEventListener('click', function(){
   console.log(click);
 });
 
-function onBridgeReady(){
+function onBridgeReady() {
   WeixinJSBridge.invoke(
     'getBrandWCPayRequest', {
       'appId': appId, // 公众号名称，由商户传入
@@ -119,12 +118,12 @@ function onBridgeReady(){
       'signType': 'MD5', // 微信签名方式：
       'paySign': paySign // 微信签名
     },
-    function(res){
-      if(res.err_msg == 'get_brand_wcpay_request:ok' ){
+    function (res) {
+      if (res.err_msg == 'get_brand_wcpay_request:ok' ) {
         console.log('pay ok');
         // 使用以上方式判断前端返回,微信团队郑重提示：
         // res.err_msg将在用户支付成功后返回ok，但并不保证它绝对可靠。
-        mui.alert('支付成功',function(){
+        mui.alert('支付成功', function () {
           toIndex();
         });
       }
@@ -132,16 +131,16 @@ function onBridgeReady(){
 }
 
 function final() {
-  if (typeof WeixinJSBridge == 'undefined'){
-    if( document.addEventListener ){
+  if (typeof WeixinJSBridge == 'undefined') {
+    if (document.addEventListener) {
       console.log('document.addEventListener')
       document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false);
-    }else if (document.attachEvent){
+    } else if (document.attachEvent) {
       console.log('document.attachEvent')
       document.attachEvent('WeixinJSBridgeReady', onBridgeReady);
       document.attachEvent('onWeixinJSBridgeReady', onBridgeReady);
     }
-  }else{
+  } else {
     onBridgeReady();
   }
 }

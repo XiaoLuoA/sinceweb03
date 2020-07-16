@@ -4,7 +4,7 @@ import { delegate } from '~/util/elemnet';
 import renderBookTemplate from './module/template/bookTemplate';
 import codes from '~/config/codeConfig';
 import '~/module/initFooter';
-import { toBuy, toError  } from '~/util/jumpTo';
+import { toBuy, toError } from '~/util/jumpTo';
 import { wxLogin } from '~/ajax/user';
 
 wxLogin().then((data) => {
@@ -21,7 +21,7 @@ wxLogin().then((data) => {
     const nickname = theUser.nickname;
     const headImgUrl = theUser.headImgUrl;
     const openId = theUser.openId;
-  }else{
+  } else {
     toError();
   }
 });
@@ -33,7 +33,7 @@ getBooks().then((data) => {
     return;
   } else if (data.code === codes.BOOK_NOT_FIND) {
     mui.alert('森思书屋已打烊！');
-    return ;
+    return;
   }
   ajaxDebugger('error', data);
 }).finally(() => {});
@@ -45,7 +45,7 @@ function renderBooks(data) {
   let books = data.data;
   const countUtil = [];
   let j = 0;
-  for (let i in books){
+  for (let i in books) {
     if (books[i].bookstatus == 1) {
        countUtil[j] = i;
        j++;
@@ -78,13 +78,13 @@ function renderBooks(data) {
 function addBuy(event) {
   const booknumb = event.delegateTarget.dataset.booknumb;
   console.log(booknumb);
-  localStorage.setItem('booknumb',booknumb);
+  localStorage.setItem('booknumb', booknumb);
   toBuy();
 }
 const search = document.getElementById('search');
-search.addEventListener('keydown', function(e) {
+search.addEventListener('keydown', function (e) {
   const searchName = search.value;
-  if(e.keyCode == 13){
+  if (e.keyCode == 13) {
     console.log(searchName);
     
     findBooksByName(searchName).then((data) => {
@@ -94,7 +94,7 @@ search.addEventListener('keydown', function(e) {
         return;
       } else if (data.code === codes.BOOK_NOT_FIND) {
         mui.alert('搜索为空');
-        return ;
+        return;
       }
       ajaxDebugger('error', data);
     }).finally(() => {});
