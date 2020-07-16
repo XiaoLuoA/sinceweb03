@@ -30,17 +30,17 @@ addBtn.addEventListener('click', function (ev) {
 
 function addNew() {
   layer.open({
-    type: 1
-    , content: `
+    type: 1,
+    content: `
         <header class="mui-bar mui-bar-nav"><h1 class="mui-title">留言</h1></header>
             <br><br><div class="mui-input-row" style="margin: 10px">  
             <textarea id="textarea" rows="5" maxlength="50"  placeholder="我想说的话..." name="content" ></textarea>
            </div>
             <div style="text-align:center;">
             <button type="submit" id="addMes" class="mui-btn mui-btn-primary"  >确认</button>&nbsp;&nbsp;&nbsp;&nbsp;
-           <button type="button" class="mui-btn mui-btn-danger" onclick="layer.closeAll()">取消</button></div>' `
-    , anim: 'up'
-    , style: 'position:fixed; left:0; top:0; width:100%; height:100%; border: none; -webkit-animation-duration: .5s; animation-duration: .5s;'
+           <button type="button" class="mui-btn mui-btn-danger" onclick="layer.closeAll()">取消</button></div>' `,
+      anim: 'up',
+      style: 'position:fixed; left:0; top:0; width:100%; height:100%; border: none; -webkit-animation-duration: .5s; animation-duration: .5s;',
   });
 }
 

@@ -6,12 +6,14 @@
 
 
 module.exports = {
+
   parserOptions: {
     'ecmaVersion': 7,
     'sourceType': 'module'
   },
+
   rules: {
-    // 自定义的规则
+    'comma-dangle': [2, "always-multiline"], // 最后一个属性
     quotes: [2, 'single'], // 单引号
     // 'no-console': 0,
     'no-unreachable': 2, // 禁止不可达代码
@@ -19,8 +21,9 @@ module.exports = {
     'eol-last': 2, // 文件必须以空行结束
     'no-var': 2, // 不允许使用var
     'no-tabs': 2, // 不允许使用tab
+    
     'no-spaced-func': 2, // 函数调用 小括号和函数名无空格
-    'space-before-function-paren': [2, { anonymous: 'always', named: 'never', asyncArrow: 'always', }], // 函数定义和括号间无空格
+    // 'space-before-function-paren': [2, { anonymous: 'never', named: 'never', asyncArrow: 'never', }], // 函数定义和括号间无空格
     'brace-style': [ 2, '1tbs', { allowSingleLine: true }], // 大括号风格
     'space-before-blocks': 2, // 大括号（块）前空格
     'rest-spread-spacing': [2, 'never'], // 扩展符前无空格
@@ -38,5 +41,5 @@ module.exports = {
     'spaced-comment': 2, // 注释的空格
     'space-unary-ops': 2, // 一元操作符边的空格
     'space-infix-ops': 2, // 操作符的空格
-  }
+  },
 };

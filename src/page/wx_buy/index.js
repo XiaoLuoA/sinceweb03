@@ -129,7 +129,7 @@ function onBridgeReady(){
       'nonceStr': nonceStr, // 随机串
       'package': wx_package,
       'signType': 'MD5', // 微信签名方式：
-      'paySign': paySign // 微信签名
+      'paySign': paySign, // 微信签名
     },
     function(res){
       if(res.err_msg == 'get_brand_wcpay_request:ok' ){
