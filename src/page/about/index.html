@@ -1,15 +1,57 @@
 <!doctype html>
 <html>
-  <head>
-    <meta charset="UTF-8" />
-    <title><%= htmlWebpackPlugin.options.title %></title>
-  </head>
-  <body>
-    <header class="mui-bar mui-bar-nav">
-			<h1 class="mui-title">我的订单</h1>
-		</header>
-		<div class="mui-content">
-      
+
+<head>
+  <meta charset="UTF-8" />
+  <title><%= htmlWebpackPlugin.options.title %></title>
+</head>
+<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+<link rel="stylesheet" href="../../../public/css/mui.min.css">
+
+<body>
+  <header class="mui-bar mui-bar-nav">
+    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+    <h1 class="mui-title">关于我们</h1>
+  </header>
+  <div class="mui-content">
+    <div class="mui-card">
+      <!--页眉，放置标题-->
+      <div class="mui-card-header">公司简介</div>
+      <!--内容区-->
+      <div class="mui-card-content">
+        <div class="mui-card-content-inner">
+          河南森思软件科技有限公司，简称：森思公司。<br><br>
+          源于郑大：2018年，一群郑大学子怀揣着改变世界的梦想创立了森思公司。<br><br>
+          植于郑大：创立之初，森思公司进驻郑州大学创新创业基地。<br><br>
+          服务中原：一颗中原赤子心，助理河南企业云上发展。<br>
+        </div>
+      </div>
+      <!--页脚，放置补充信息或支持的操作-->
+      <div class="mui-card-footer">2020-7-15</div>
     </div>
-  </body>
+    <div class="mui-card">
+      <!--页眉，放置标题-->
+      <div class="mui-card-header">开发者简介</div>
+      <!--内容区-->
+      <div class="mui-card-content">
+        <div class="mui-card-content-inner">
+          咧咧：森思公司创始人，*州大学研究生。<br><br>
+
+          笑笑：森思公司后端技术支撑，**科技大学研究生。<br><br>
+
+          萌萌：森思公司前台技术支撑，**巴巴员工。<br><br>
+
+          哈哈：中国电子**员工。<br><br>
+
+          嗯嗯：M国NEU研究生。<br><br>
+
+          兜兜：中国**大学研究生。
+        </div>
+      </div>
+      <!--页脚，放置补充信息或支持的操作-->
+      <div class="mui-card-footer">2020-7-16</div>
+    </div>
+  </div>
+</body>
+
 </html>

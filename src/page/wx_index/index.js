@@ -10,8 +10,9 @@ import { wxLogin } from '~/ajax/user';
 wxLogin().then((data) => {
   if (data.code === codes.success ) {
     const theUser = data.data;
-    let objString = JSON.stringify(data.data);
-    let user = localStorage.setItem('wx_user', objString);
+    let objString = JSON.stringify(theUser);
+    localStorage.setItem('wx_user', objString);
+    let user = localStorage.getItem('wx_user');
     console.log(objString);
     let objNew = JSON.parse(user);
     console.log(objNew.nickname);

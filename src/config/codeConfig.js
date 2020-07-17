@@ -9,4 +9,5 @@ module.exports = {
     LIST_OPENID_NOT_FOUND: '900_401', // 查找为空
     LIST_ID_NOT_FOUND: '900_402', // 发货失败
     LIST_BOOK_NUM_NO: '900_403', // 库存不足
+    OPEN_ID_NOT_SAME: '801_403'// openid不匹配
 };
