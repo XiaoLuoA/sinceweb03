@@ -7,6 +7,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 // node命令环境变量
 const NODE_ENV = process.env.NODE_ENV;
 // 配置项
+const serverConfig = require('./config/serverConfig');
 const pages = require('./config/pageConfig');
 let devProxy;
 const proxyConfigPath = './config/proxyConfig';
@@ -57,6 +58,7 @@ module.exports = {
   devtool: 'source-map',
   entry,
   output: {
+    publicPath: serverConfig.publicPath,
     filename: 'page/[name]/index.b.js',
     path: outputPath,
   },
@@ -93,7 +95,9 @@ module.exports = {
     new ExtractTextPlugin({
       allChunks: true,
       filename: 'page/[name]/[name].css',
+
     }), // 打包后的文件名
+    
     ...htmlWebpackPlugin,
     new CleanWebpackPlugin(),
     new CopyPlugin({
