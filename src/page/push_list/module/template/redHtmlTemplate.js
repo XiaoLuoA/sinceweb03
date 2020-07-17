@@ -2,7 +2,7 @@ export default (pushItem) =>
   `<ul class="mui-table-view mui-table-view-chevron">
     <li class="mui-table-view-cell mui-collapse">
       <a class="mui-navigate-right" >
-        <button class="mui-pull-right mui-btn-red" style="float:right">
+        <button class="mui-pull-right mui-btn-red" data-no="${pushItem.no}"  id="inerEvent" style="float:right">
           发货
         </button>
         <img
@@ -23,6 +23,7 @@ export default (pushItem) =>
         <li class="mui-table-view-cell">
           <p class="" >
           订单号：${pushItem.no}
+          微信昵称: ${pushItem.wxName}
           </p>
         </li>
       </ul>
