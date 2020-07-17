@@ -4,17 +4,17 @@ import rendermsgTemplate from './module/template/msgTemplate';
 import '~/module/initFooter';
 
 getMemos().then((res) => {
-  let allmessage = '';
-  for (let i in res.data) {
-    const msg = res.data[i];
-    allmessage = rendermsgTemplate(msg);
-  }
-  document.getElementById('message').innerHTML = allmessage;
-  if (data.code === codes.success) {
-    console.log(data);
+  if (res.code === codes.success) {
+    console.log(res);
+    let allmessage = '';
+    for (let i in res.data) {
+      const msg = res.data[i];
+      allmessage += rendermsgTemplate(msg);
+    }
+    document.getElementById('message').innerHTML = allmessage;
     return;
   }
-  console.log('error', data);
+  console.log('error', res);
 });
 
 let addBtn = document.getElementById('open');
