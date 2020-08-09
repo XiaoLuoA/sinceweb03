@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { ajaxDebugger } from '~/util/debug';
 import { host } from './config';
+import codeConfig from '~/config/codeConfig';
 
 /**
  * 用来生成一个不重复的自增值
@@ -42,6 +43,9 @@ function ajax(method, url, params, errMsg = '网络或服务器异常，请重�
         ajaxDebugger('glob err ajax');
         // 全局异常 直接处理了 reject
         message.error(errMsg);
+        if (code == codeConfig.NO_LOGIN) {
+          window.location.href = errMsg;
+        }
         reslove(body);
       } else {
         // 请求成功或者局部异常 交给业务处理 reslove
@@ -63,7 +67,7 @@ function ajax(method, url, params, errMsg = '网络或服务器异常，请重�
  */
 function isGlobalErrCode(code) {
   // TODO 这里还需要补全一下
-  return (code == 500 ) ? true : false;
+  return (code == code.NO_LOGIN) ? true : false;
 }
 export { ajax };
 export const get = (url, params, errMsg) => {

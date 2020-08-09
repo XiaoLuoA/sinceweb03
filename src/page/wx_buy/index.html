@@ -29,25 +29,25 @@
 					</div>
 					<div class="mui-input-row">
 						<label>详细地址：</label>
-						<input id='address' type="text" name="address" class="mui-input-clear" placeholder="如：男寝8-0001"  name="address" data-input-clear="5"><span class="mui-icon mui-icon-clear mui-hidden"></span>
+						<input id='address' type="text" name="address" class="mui-input-clear" placeholder="请填写你所在的寝楼或地址"  name="address" data-input-clear="5"><span class="mui-icon mui-icon-clear mui-hidden"></span>
 					</div>
 					<div class="mui-input-row">
 						<label>购买数量：</label>
-							<div id="count" class="mui-numbox" data-numbox-min='1' data-numbox-max='5' >
+							<div id="count" class="mui-numbox">
 								<button class="mui-btn mui-btn-numbox-minus" id="delNum" type="button">-</button>
-								<input class="mui-input-numbox"  type="number" />
+								<input class="mui-input-numbox"  type="number" value="1" readonly />
 								<button class="mui-btn mui-btn-numbox-plus" id="addNum" type="button">+</button>
 							</div>
 					</div>
 		<ul class="mui-table-view" id='bookContent'>
 				<li class="mui-table-view-cell mui-media">
 					<a href="javascript:;">
-						<img class="mui-media-object mui-pull-left"  style="min-width:20vw;height:20vw; " src="http://sincelibrary.oss-cn-shanghai.aliyuncs.com/xhwl/xhwl_2.jpg">
+						<img class="mui-media-object mui-pull-left"  style="min-width:20vw;height:20vw; " src="">
 						<div class="mui-media-body">
-							计算机组成原理 
-							<p class='mui-ellipsis'>作者:刘华强</p>
-							<p class='mui-ellipsis'>价格:<span id="price">9</span>元</p>
-							<p style="color:red; font-size:20px;" class="mui-pull-right"><small>￥</small><span id="total">9</span> </p>
+							 
+							<p class='mui-ellipsis'>作者:</p>
+							<p class='mui-ellipsis'>价格:<span id="price"></span>元</p>
+							<p style="color:red; font-size:20px;" class="mui-pull-right"><small>￥</small><span id="total"></span> </p>
 						</div>
 					</a>
 				</li>
@@ -57,7 +57,7 @@
 		</div>
 		</form>
 		<div class="mui-button-row"  style="width:100vw; bottom:0;position:fixed;">
-		 <p>温馨提示：森思书屋目前仅服务于郑州大学</p>
+		 <p>温馨提示：当前购买后，新学期开学统一免费配送。</p>
   		</div>
   </body>
   <script src="../../../public/js/mui.min.js"></script>

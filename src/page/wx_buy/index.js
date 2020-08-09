@@ -17,22 +17,7 @@ getBook(booknumb).then((data) => {
   }
   console.log('error', data);
 });
-// bookads: 0
-// bookclick: 2
-// bookcount: 1
-// bookimage1: "191544441.jpg"
-// bookimage2: "191544442.null"
-// bookimage3: "191544443.null"
-// bookname: "java实战开发"
-// booknumb: 19154444
-// bookprice: 10
-// bookpricing: 30
-// bookpurprice: 5
-// bookstatus: 1
-// booktime: "1561023279057"
-// bookuse: "八成"
-// bookwriter: "名师讲坛"
-// bookzan: 0
+
 let theData = '';
 function showData(data) {
   let content = document.getElementById('bookContent');
@@ -51,6 +36,21 @@ function showData(data) {
     </a>
   </li>`
 }
+initNum();
+function initNum() {
+  const history_tel = localStorage.getItem('theTel');
+  const history_school = localStorage.getItem('school');
+  const history_address = localStorage.getItem('address');
+  if (history_tel != null) {
+    document.getElementById('tel').value = history_tel;
+  }
+  if (history_school != null) {
+    document.getElementById('school').value = history_school;
+  }
+  if (history_address != null) {
+    document.getElementById('address').value = history_address;
+  }
+}
 
 let appId, timeStamp, wx_package,
   paySign, nonceStr;
@@ -59,6 +59,9 @@ function changeInput() {
   const theTel = document.getElementById('tel').value;
   const school = document.getElementById('school').value;
   let address = document.getElementById('address').value;
+  localStorage.setItem('theTel', theTel);
+  localStorage.setItem('school', school);
+  localStorage.setItem('address', address);
   const theAddress = school + address;
   const theCount = mui('#count').numbox().getValue();
   if (theTel.length > 10) {
@@ -83,30 +86,29 @@ function changeInput() {
 }
 
 let payBtn = document.getElementById('payBtn');
-
 payBtn.addEventListener('click', changeInput);
 
-let click = 1;
 const addBtn = document.getElementById('addNum');
 const delBtn = document.getElementById('delNum');
-
-addBtn.addEventListener('click', function () {
-  click++;
+addBtn.addEventListener('click', listenNum);
+delBtn.addEventListener('click', listenNum);
+function listenNum() {
   let price = document.getElementById('price');
-  let count = mui('#count').numbox().getValue();
+  let countElment = mui('#count').numbox();
+  let count = countElment.getValue();
+  if (count < 1) {
+    mui.alert('数量不能小于1');
+    countElment.setValue(1);
+    return;
+  } else if (count > 5) {
+    mui.alert('一次最多只能买5本哦！');
+    countElment.setValue(5);
+    return;
+  }
   let total = document.getElementById('total');
   total.innerText = price.innerText * count;
-  console.log(click);
-});
+}
 
-delBtn.addEventListener('click', function () {
-  click--;
-  let price = document.getElementById('price');
-  let count = mui('#count').numbox().getValue();
-  let total = document.getElementById('total');
-  total.innerText = price.innerText * count;
-  console.log(click);
-});
 
 function onBridgeReady() {
   WeixinJSBridge.invoke(
@@ -123,7 +125,7 @@ function onBridgeReady() {
         console.log('pay ok');
         // 使用以上方式判断前端返回,微信团队郑重提示：
         // res.err_msg将在用户支付成功后返回ok，但并不保证它绝对可靠。
-        mui.alert('支付成功', function () {
+        mui.alert('支付成功', '结果', function () {
           toIndex();
         });
       }

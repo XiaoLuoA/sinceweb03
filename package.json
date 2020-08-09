@@ -1,7 +1,7 @@
 {
-  "name": "since_lesson",
-  "version": "1.0.0",
-  "description": "这是since用来更新技术栈的第一步",
+  "name": "since3.0",
+  "version": "3.0.1",
+  "description": "森思书屋第三版更新",
   "main": "./src/index.js",
   "scripts": {
     "build": "cross-env NODE_ENV=prod webpack",
@@ -11,7 +11,7 @@
     "lint1": "eslint src/*/*.js",
     "lint2": "eslint src/*/*/*.js"
   },
-  "author": "fjr@icloud.com",
+  "author": "河南森思软件科技有限公司",
   "license": "ISC",
   "devDependencies": {
     "clean-webpack-plugin": "^3.0.0",

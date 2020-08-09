@@ -1,4 +1,4 @@
-const host = 'http://wxtest.easy.echosite.cn/';
+const host = 'http://www.sinceweb.xin/';
 
 export const indexUrl = host + 'to/index';
 export const toIndex = () => {

@@ -13,15 +13,8 @@ wxLogin().then((data) => {
     let objString = JSON.stringify(theUser);
     localStorage.setItem('wx_user', objString);
     let user = localStorage.getItem('wx_user');
-    console.log(objString);
     let objNew = JSON.parse(user);
-    console.log(objNew.nickname);
-    const city = theUser.city;
-    console.log(city);
-    const province = theUser.province;
-    const nickname = theUser.nickname;
-    const headImgUrl = theUser.headImgUrl;
-    const openId = theUser.openId;
+    console.log(objNew.wxName);
   } else {
     toError();
   }

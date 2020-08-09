@@ -26,9 +26,9 @@ function showAllPushList(data) {
   const pushList = data.data;
   for (let i in data.data) {
     const pushItem = pushList[i];
-    if (pushItem.status == 2) {
+    if (pushItem.status == 3) {
       htmlred += renderRedHtml(pushItem);
-    } else {
+    } else if (pushItem.status == 2) {
       htmlgreen += renderGreenHtml(pushItem)
   }
   }
