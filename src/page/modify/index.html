@@ -1,0 +1,92 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, initial-scale=1.0, user-scalable=no">
+  <title><%= htmlWebpackPlugin.options.title %></title>
+  <link rel="stylesheet" href="http://i.gtimg.cn/vipstyle/frozenui/2.0.0/css/frozen.css"/>     
+</head>
+
+<body>
+  <div class="ui-form ui-border-t">
+    <div class="ui-tab ">
+      <ul class="ui-tab-nav ui-border-b ">
+        <li><span><a href="login.html" style="color:#333;">注册与缴费</a></span></li>
+        <li class="current"><span><a href="modify.html">停用与开启</a></span></li>
+      </ul>
+    </div>
+    <div>
+      <div class="ui-form-item ui-border-b">
+        <label>
+          学号
+        </label>
+        <input type="text" placeholder="健康打卡账号">
+
+      </div>
+      <div class="ui-form-item ui-border-b">
+        <label>
+          密码
+        </label>
+        <input type="password" placeholder="健康打卡密码">
+      </div>
+      <div id='days' class="ui-form-item ui-form-item-switch ui-border-b" style="display: none;">
+        <label>
+          剩余天数
+        </label>
+        <input type="text" value="999">
+      </div>
+      <div id='status' class="ui-form-item ui-form-item-switch ui-border-b" style="display: none;">
+        <p>
+          当前状态
+        </p>
+        <label class="ui-switch">
+          <input type="checkbox" checked="">
+        </label>
+      </div>
+
+      <div class="ui-tooltips ui-tooltips-guide" onclick="display('four')"">
+              <div class=" ui-tooltips-cnt ui-tooltips-cnt-link ui-border-b">
+        <i></i><a href="#">停用提示</a>
+      </div>
+    </div>
+    <div class="ui-btn-wrap">
+      <button class="ui-btn-lg ui-btn-primary" id="selectEle">
+        查询
+      </button>
+    </div>
+  </div>
+  </div>
+
+
+
+  <div class="ui-dialog ui-dialog-operate hidden" id="four">
+    <div class="ui-dialog-cnt">
+
+      <div class="ui-dialog-bd">
+        <h3>停用提示</h3>
+        <p style="margin-left:  0px;text-align: left;">
+          1.若您在这里进行启用，请保证前一天打卡信息正常，因为该系统是按照您前一天内容进行上报。
+          <br><br>
+          2.若您因特殊原因暂停使用，该系统将为您保留账户余额的上报天数，感谢您为抗疫出力。
+          <br><br>
+          3.状态按钮：白色表示关闭，蓝色表示开启。
+        </p>
+      </div>
+      <i class="ui-dialog-close" data-role="button" onclick="cancel('four')"></i>
+    </div>
+  </div>
+  <div class="ui-dialog" id='alert'>
+    <div class="ui-dialog-cnt">
+      <div class="ui-dialog-bd">
+        <h3>通知</h3>
+        <p id='falert'>修改成功</p>
+      </div>
+      <div class="ui-dialog-ft">
+        <button type="button" onmouseup="fclose()" data-role="button" class="btn-recommand">确认</button>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

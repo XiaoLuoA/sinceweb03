@@ -1,0 +1,144 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport"
+    content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, initial-scale=1.0, user-scalable=no">
+  <title><%= htmlWebpackPlugin.options.title %></title>
+  <link rel="stylesheet" href="https://res.wx.qq.com/open/libs/weui/2.4.0/weui.min.css" />
+</head>
+
+<body>
+  <div class="page">
+    <div class="weui-form">
+      <div class="weui-form__text-area">
+        <h2 class="weui-form__title">自动健康打卡系统</h2>
+       
+      </div>
+      <div class="weui-form__control-area">
+        <div class="weui-cells__group weui-cells__group_form">
+          <div class="weui-cells weui-cells_form">
+            <div class="weui-cell weui-cell_active weui-cell_readonly">
+              <div class="weui-cell__hd"><label class="weui-label">我的学号</label></div>
+              <div class="weui-cell__bd">
+                <input id="sid" class="weui-input" placeholder="请输入你的学号" value="20208888888" readonly="">
+              </div>
+              <div class="weui-cell__ft">
+                <a class="weui-btn_reset weui-btn_icon">
+                  <i id="showIOSDialog1" class="weui-icon-info-circle"></i>
+                </a>
+              </div>
+            </div>
+            <div class="weui-cell weui-cell_active weui-cell_readonly">
+              <div class="weui-cell__hd"><label class="weui-label">我的邮箱</label></div>
+              <div class="weui-cell__bd">
+                <input id="email" class="weui-input" placeholder="请输入EMail" value="359891977@qq.com" readonly="">
+              </div>
+            </div>
+            <div class="weui-cell weui-cell_active weui-cell_readonly">
+              <div  class="weui-cell__hd"><label class="weui-label">剩余天数</label></div>
+              <div class="weui-cell__bd">
+                <input id="day" class="weui-input" placeholder="请输入EMail" value="8天" readonly="">
+              </div>
+              <div class="weui-cell__ft">
+                <a class="weui-btn_reset weui-btn_icon">
+                  <i id="showIOSDialog2" class="weui-icon-info-circle"></i>
+                </a>
+              </div>
+            </div>
+            <div class="weui-cell weui-cell_active weui-cell_readonly">
+              <div class="weui-cell__hd"><label class="weui-label">当前状态</label></div>
+              <div class="weui-cell__bd">
+                <input id="status" class="weui-input" placeholder="请输入EMail" value="已开启" readonly="">
+              </div>
+              <div class="weui-cell__ft">
+                <button id="start" class="weui-btn weui-btn_default weui-vcode-btn" style="color:red">停用</button>
+              </div>
+            </div>
+          </div>
+          <div class="weui-cells__tips"> 如数据异常请点击这里 <a class="weui-link" onclick="shuaxin()">刷新页面</a></div>
+         
+        </div>
+      </div>
+      <div class="weui-form__opr-area">
+        <a class="weui-btn weui-btn_primary" href="javascript:" id="showTooltips">续费</a>
+      </div>
+    </div>
+    <div class="weui-footer">
+      <p class="weui-footer__links">
+        <a href="http://www.since88.cn" class="weui-footer__link">森思公司</a>
+      </p>
+      <p class="weui-footer__text">Copyright &copy; 2014-2020 </p>
+    </div>
+    <div id="js_toast" style="display: none;">
+      <div class="weui-mask_transparent"></div>
+      <div class="weui-toast">
+        <i class="weui-icon-success-no-circle weui-icon_toast"></i>
+        <p class="weui-toast__content">已完成</p>
+      </div>
+    </div>
+    <div id="dialogs">
+      <!--BEGIN dialog1-->
+      <div class="js_dialog" id="iosDialog1" style="display: none;">
+        <div class="weui-mask"></div>
+        <div id="js_half_screen_dialog" class="weui-half-screen-dialog">
+          <div class="weui-half-screen-dialog__hd">
+            <div class="weui-half-screen-dialog__hd__side">
+              <button id="dialogClose" class="weui-icon-btn">关闭<i class="weui-icon-close-thin"></i></button>
+            </div>
+            <div class="weui-half-screen-dialog__hd__main">
+              <strong class="weui-half-screen-dialog__title" id="subject">标题</strong>
+            </div>
+          </div>
+          <div class="weui-half-screen-dialog__bd" id="content">
+          </div>
+        </div>
+      </div>
+      <!--END dialog1-->
+      <div class="" hidden id="money">
+        <div class="weui-mask weui-animate-fade-in"></div>
+        <div class="weui-half-screen-dialog weui-picker weui-animate-slide-up">
+          <div class="weui-half-screen-dialog__hd">
+            <div class="weui-half-screen-dialog__hd__side"> <button
+                class="weui-icon-btn weui-icon-btn_close weui-picker__btn" id="closeMoney">关闭</button> </div>
+            <div class="weui-half-screen-dialog__hd__main"> <strong
+                class="weui-half-screen-dialog__title">选择续费时长</strong> </div>
+          </div>
+          <div class="weui-half-screen-dialog__bd">
+            <div class="weui-cells weui-cells_radio">
+              <label class="weui-cell weui-cell_active weui-check__label" for="x11">
+                <div class="weui-cell__bd">
+                  <p>15天 &nbsp; <small><del>￥3.00</del></small>&nbsp;  <b style="color:red"> ￥1.99 </b></p>
+                </div>
+                <div class="weui-cell__ft">
+                  <input type="radio" class="weui-check" name="radio1" id="x11">
+                  <span class="weui-icon-checked"></span>
+                </div>
+              </label>
+              <label class="weui-cell weui-cell_active weui-check__label" for="x12">
+                <div class="weui-cell__bd">
+                  <p>30天 &nbsp; <small><del>￥5.00</del></small> &nbsp; <b style="color:red"> ￥2.99 </b> </p>
+                </div>
+                <div class="weui-cell__ft">
+                  <input type="radio" name="radio1" class="weui-check" id="x12" checked="checked">
+                  <span class="weui-icon-checked"></span>
+                </div>
+              </label>
+            </div>
+          </div>
+          <div class="weui-half-screen-dialog__ft"> <a href="javascript:;"
+              class="weui-btn weui-btn_primary weui-picker__btn" id="weui-picker-confirm" data-action="select">确定</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+<script>
+  function shuaxin(){
+    window.location.reload();
+  }
+</script>
+
+</html>

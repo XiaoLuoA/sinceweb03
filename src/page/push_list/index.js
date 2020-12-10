@@ -1,10 +1,9 @@
-import codes from '~/config/codeConfig';
+import codes, { WX_LIST_PAY, WX_LIST_PAY_SEND } from '~/config/codeConfig';
 import { getAllPushList } from '~/ajax/push_list';
 import { sendWxList } from '~/ajax/push_list';
 import { delegate } from '~/util/elemnet';
 import renderRedHtml from './module/template/redHtmlTemplate';
 import renderGreenHtml from './module/template/greenHtmlTemplate';
-
 import './index.less';
 
 // const user = 'gdsflkghsdfoihgiosdfgdfgnghkm';
@@ -26,9 +25,9 @@ function showAllPushList(data) {
   const pushList = data.data;
   for (let i in data.data) {
     const pushItem = pushList[i];
-    if (pushItem.status == 3) {
+    if (pushItem.status == WX_LIST_PAY) {
       htmlred += renderRedHtml(pushItem);
-    } else if (pushItem.status == 2) {
+    } else if (pushItem.status == WX_LIST_PAY_SEND) {
       htmlgreen += renderGreenHtml(pushItem)
   }
   }

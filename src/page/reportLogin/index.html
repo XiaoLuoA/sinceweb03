@@ -1,0 +1,107 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport"
+    content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, initial-scale=1.0, user-scalable=no">
+  <title><%= htmlWebpackPlugin.options.title %></title>
+  <link rel="stylesheet" href="https://res.wx.qq.com/open/libs/weui/2.4.0/weui.min.css" />
+</head>
+
+<body>
+  <div class="page">
+    <div class="weui-form">
+      <div class="weui-form__text-area">
+        <h2 class="weui-form__title">自动健康打卡系统</h2>
+        <div class="weui-form__desc">serve zzu</div>
+      </div>
+      <div class="weui-form__control-area">
+        <div class="weui-cells__group weui-cells__group_form">
+          <div class="weui-cells weui-cells_form">
+            <div class="weui-cell weui-cell_active">
+              <div class="weui-cell__hd"><label class="weui-label">学号</label></div>
+              <div class="weui-cell__bd">
+                <input id="sid" class="weui-input" type="text"  placeholder="请输入你的学号" value="" />
+              </div>
+              <div class="weui-cell__ft">
+                <a class="weui-btn_reset weui-btn_icon">
+                  <i id="showIOSDialog1" class="weui-icon-info-circle"></i>
+                </a>
+              </div>
+            </div>
+            <div class="weui-cell weui-cell_active">
+              <div class="weui-cell__hd"><label class="weui-label">密码</label></div>
+              <div class="weui-cell__bd">
+                <input class="weui-input" id="password" type="password"  placeholder="请输入你的密码" value="" />
+              </div>
+            </div>
+            <div class="weui-cell weui-cell_active">
+              <div class="weui-cell__hd"><label class="weui-label">邮箱</label></div>
+              <div class="weui-cell__bd">
+                <input class="weui-input" id="email" type="text" placeholder="请输入你的邮箱" value="" />
+              </div>
+              <div class="weui-cell__ft">
+                <a class="weui-btn_reset weui-btn_icon">
+                  <i id="showIOSDialog2" class="weui-icon-info-circle"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="weui-cells__tips"><a class="weui-link" href="javascript:">请正确填写您的信息</a></div>
+        </div>
+      </div>
+      <div class="weui-form__tips-area">
+        <label id="weuiAgree" for="weuiAgreeCheckbox" class="weui-agree">
+          <input id="weuiAgreeCheckbox" type="checkbox"  class="weui-agree__checkbox" /><span
+            class="weui-agree__text">阅读并同意<a id="Clause">《相关条款》</a>
+          </span>
+        </label>
+      </div>
+      <div class="weui-form__opr-area">
+        <a class="weui-btn weui-btn_primary weui-btn_disabled" href="javascript:" id="showTooltips">确定</a>
+      </div>
+    </div>
+    <div class="weui-footer">
+      <p class="weui-footer__links">
+        <a href="http://www.since88.cn" class="weui-footer__link">森思公司</a>
+      </p>
+      <p class="weui-footer__text">Copyright &copy; 2014-2020 </p>
+    </div>
+    <div id="js_toast" style="display: none;">
+      <div class="weui-mask_transparent"></div>
+      <div class="weui-toast">
+        <i class="weui-icon-success-no-circle weui-icon_toast"></i>
+        <p class="weui-toast__content">已完成</p>
+      </div>
+    </div>
+    <div id="dialogs">
+      <!--BEGIN dialog1-->
+      <div class="js_dialog" id="iosDialog1" style="display: none;">
+        <div class="weui-mask"></div>
+        <div id="js_half_screen_dialog" class="weui-half-screen-dialog">
+          <div class="weui-half-screen-dialog__hd">
+            <div class="weui-half-screen-dialog__hd__side">
+              <button id="dialogClose" class="weui-icon-btn">关闭<i class="weui-icon-close-thin"></i></button>
+            </div>
+            <div class="weui-half-screen-dialog__hd__main">
+              <strong class="weui-half-screen-dialog__title" id="subject">标题</strong>
+            </div>
+          </div>
+          <div class="weui-half-screen-dialog__bd" id="content">
+            <br>
+            <br>
+            可放自定义内容
+            <br>
+            <br>
+            <br>
+            <br>
+          </div>
+        </div>
+      </div>
+      <!--END dialog1-->
+    </div>
+  </div>
+</body>
+
+</html>

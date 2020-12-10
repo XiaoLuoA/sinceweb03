@@ -6,7 +6,7 @@ import codes from '~/config/codeConfig';
 import '~/module/initFooter';
 import { toBuy, toError } from '~/util/jumpTo';
 import { wxLogin } from '~/ajax/user';
-
+alert('森思书屋，清仓大处理，全场低至2元，快来抢购吧！！！');
 wxLogin().then((data) => {
   if (data.code === codes.success ) {
     const theUser = data.data;

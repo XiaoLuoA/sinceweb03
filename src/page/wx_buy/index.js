@@ -125,9 +125,9 @@ function onBridgeReady() {
         console.log('pay ok');
         // 使用以上方式判断前端返回,微信团队郑重提示：
         // res.err_msg将在用户支付成功后返回ok，但并不保证它绝对可靠。
-        mui.alert('支付成功', '结果', function () {
+        alert('购买成功');
           toIndex();
-        });
+        
       }
     });
 }

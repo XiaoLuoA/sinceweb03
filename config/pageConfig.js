@@ -44,6 +44,18 @@ module.exports = [
   {
     name: 'error',
     title: '登录失败',
+  },
+  {
+    name: 'report',
+    title: '健康上报（zzu）',
+  },
+  {
+    name: 'modify',
+    title: '健康上报（zzu）',
+  },
+  {
+    name: 'reportLogin',
+    title: '健康上报（zzu）',
   }
 
 ];

@@ -14,6 +14,7 @@ const htmlTemplate = `<!doctype html>
 <html>
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, initial-scale=1.0, user-scalable=no">
     <title><%= htmlWebpackPlugin.options.title %></title>
   </head>
   <body>
@@ -26,7 +27,7 @@ function writefile(filePath, data = '') {
   try {
     fs.accessSync(filePath);
     console.log(`文件 ${filePath}已存在`);
-    return ;
+    return;
   } catch (e) { }
   console.log(`文件 ${filePath}不存在 尝试创建`);
 

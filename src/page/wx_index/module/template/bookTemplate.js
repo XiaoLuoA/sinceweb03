@@ -7,7 +7,7 @@ export default (book) =>
       >
       </div>
       <div class="mui-card-content" >
-        <p class="mui-ellipsis" style="color:#333; margin:8px;font-size:11px;"><b>${book.bookname}</b><br>${book.bookuse}新 | 开学送</p>
+        <p class="mui-ellipsis" style="color:#333; margin:8px;font-size:11px;"><b>${book.bookname}</b><br>${book.bookuse}新 | 当日达</p>
         <p style="color:red; margin:6px;font-size:16px;">
           ￥${book.bookprice} 
           <small style="color:#999; font-size:6px;"> ${book.bookclick}人购买</small>
