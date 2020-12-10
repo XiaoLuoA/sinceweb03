@@ -19,10 +19,6 @@ export default (msg) => {
       <div class="mui-card-content">
         <div class="mui-card-content-inner">${message}</div>
       </div>
-      <div class="mui-card-footer">
-        <span class="mui-pull-left" style="font-size: 15px;color:red"></span>
-        <span class="mui-icon mui-icon-location mui-pull-right" style="font-size: 15px;">${wxAddress}</span>
-      </div>
     </div>`
     );
 };
